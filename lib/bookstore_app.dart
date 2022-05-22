@@ -11,6 +11,7 @@ class BookstoreApp extends StatelessWidget {
       title: 'Bookstore',
       theme: ThemeData(
         primarySwatch: Colors.red,
+        fontFamily: "Helvetica",
       ),
       home: const OnboardingScreen(),
     );
