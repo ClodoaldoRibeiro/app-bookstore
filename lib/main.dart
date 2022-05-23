@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import 'bookstore_app.dart';
+import 'app_module.dart';
+import 'app_widget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,5 +14,10 @@ void main() {
     ),
   );
 
-  runApp(const BookstoreApp());
+  runApp(
+    ModularApp(
+      module: AppModule(),
+      child: const AppWidget(),
+    ),
+  );
 }

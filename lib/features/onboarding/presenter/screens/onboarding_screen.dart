@@ -1,11 +1,29 @@
-import 'package:bookstore/core/design_system/platinum_button_contoured.dart';
-import 'package:bookstore/core/design_system/platinum_button_full.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../core/assets/images_assets.dart';
+import '../../../../core/design_system/platinum_button_contoured.dart';
+import '../../../../core/design_system/platinum_button_full.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Color(0xFFEF5A5A),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
