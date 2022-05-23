@@ -1,3 +1,5 @@
+import 'package:bookstore/core/design_system/platinum_button_contoured.dart';
+import 'package:bookstore/core/design_system/platinum_button_full.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/assets/images_assets.dart';
@@ -52,43 +54,18 @@ class OnboardingScreen extends StatelessWidget {
                   const SizedBox(
                     height: 32,
                   ),
-                  SizedBox(
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      child: const Text(
-                        "Create Account",
-                        style: TextStyle(
-                          color: Color(0xFFEF5A5A),
-                        ),
-                      ),
-                    ),
+                  PlatinumButtonFull(
+                    data: "Create Account",
+                    typeButtonFull: TypeButtonFull.secondary,
+                    onPressed: () {},
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  SizedBox(
-                    height: 50,
-                    child: OutlinedButton(
-                      onPressed: () {},
-                      style: OutlinedButton.styleFrom(
-                        side: const BorderSide(
-                          color: Colors.white,
-                        ),
-                      ),
-                      child: const Text(
-                        "Log In as Guest",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  PlatinumButtonContoured(
+                    data: "Log In as Guest",
+                    typeButtonContoured: TypeButtonContoured.secondary,
+                    onPressed: () {},
                   ),
                 ],
               ),

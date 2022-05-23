@@ -13,6 +13,7 @@ class BookstoreApp extends StatelessWidget {
         primarySwatch: Colors.red,
         fontFamily: "Helvetica",
       ),
+      debugShowCheckedModeBanner: false,
       home: const OnboardingScreen(),
     );
   }
