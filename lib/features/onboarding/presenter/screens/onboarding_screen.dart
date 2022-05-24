@@ -1,9 +1,13 @@
+import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/assets/images_assets.dart';
 import '../../../../core/design_system/platinum_button_contoured.dart';
 import '../../../../core/design_system/platinum_button_full.dart';
+
+import 'package:bookstore/routes/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -88,7 +92,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   PlatinumButtonContoured(
                     data: "Log In as Guest",
                     typeButtonContoured: TypeButtonContoured.secondary,
-                    onPressed: () {},
+                    onPressed: () => Modular.to.pushNamed(
+                        AuthenticationRoutes.authenticationScreenInitialRoute),
                   ),
                 ],
               )

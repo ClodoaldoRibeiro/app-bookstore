@@ -1,3 +1,4 @@
+import 'package:bookstore/features/authentication/authentication_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'features/onboarding/onboarding_module.dart';
@@ -13,6 +14,10 @@ class AppModule extends Module {
       ModuleRoute(
         OnboardingRoutes.onboardingModuleRoute,
         module: OnboardingModule(),
+      ),
+      ModuleRoute(
+        AuthenticationRoutes.authenticationModuleRoute,
+        module: AuthenticationModule(),
       ),
     ];
   }
