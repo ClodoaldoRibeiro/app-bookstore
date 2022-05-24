@@ -19,7 +19,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
         systemNavigationBarColor: Color(0xFFEF5A5A),
       ),
     );
@@ -27,33 +26,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Material(
       child: Container(
         padding: const EdgeInsets.all(16),
         color: const Color(0xFFEF5A5A),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Center(
-                child: ImagesAssets.bookstoreLogoLight,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: height * 0.50,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: ImagesAssets.bookstoreLogoLight,
+                  ),
+                ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Center(
-                    child: Text(
-                      "Welcome",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 42,
-                        fontWeight: FontWeight.bold,
+                  const SizedBox(
+                    child: Center(
+                      child: Text(
+                        "Welcome",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -86,9 +91,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onPressed: () {},
                   ),
                 ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
