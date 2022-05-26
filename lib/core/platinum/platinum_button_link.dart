@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-enum TypeButtonContoured {
+import 'platinum_spacing/platinum_padding.dart';
+
+enum TypeButtonLink {
   primary,
   secondary,
 }
 
-class PlatinumButtonContoured extends StatelessWidget {
+class PlatinumButtonLink extends StatelessWidget {
   final void Function()? onPressed;
   final String data;
-  final TypeButtonContoured typeButtonContoured;
+  final TypeButtonLink typeButtonLink;
 
-  const PlatinumButtonContoured({
+  const PlatinumButtonLink({
     Key? key,
     this.onPressed,
     required this.data,
-    required this.typeButtonContoured,
+    required this.typeButtonLink,
   }) : super(key: key);
 
   @override
@@ -22,25 +24,23 @@ class PlatinumButtonContoured extends StatelessWidget {
     const color = Color(0xFFEF5A5A);
 
     return SizedBox(
-      height: 50,
+      height: PlatinumPadding.xxxxxii,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(PlatinumPadding.viii),
           ),
           side: BorderSide(
-            color: typeButtonContoured == TypeButtonContoured.primary
-                ? color
-                : Colors.white,
+            color:
+                typeButtonLink == TypeButtonLink.primary ? color : Colors.white,
           ),
         ),
         child: Text(
           data,
           style: TextStyle(
-            color: typeButtonContoured == TypeButtonContoured.primary
-                ? color
-                : Colors.white,
+            color:
+                typeButtonLink == TypeButtonLink.primary ? color : Colors.white,
           ),
         ),
       ),

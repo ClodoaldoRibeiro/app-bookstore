@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'platinum_spacing/platinum_padding.dart';
+
 enum TypeButtonFull {
   primary,
   secondary,
@@ -22,14 +24,14 @@ class PlatinumButtonFull extends StatelessWidget {
     const color = Color(0xFFEF5A5A);
 
     return SizedBox(
-      height: 50,
+      height: PlatinumPadding.xxxxxii,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           primary:
               typeButtonFull == TypeButtonFull.primary ? color : Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(PlatinumPadding.viii),
           ),
         ),
         child: Text(

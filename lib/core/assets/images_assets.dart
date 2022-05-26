@@ -6,4 +6,10 @@ abstract class ImagesAssets {
       'assets/images/Bookstore_LOGO_LIGHT.png',
     );
   }
+
+  static get bookstore {
+    return Image.asset(
+      'assets/images/bookstore.png',
+    );
+  }
 }

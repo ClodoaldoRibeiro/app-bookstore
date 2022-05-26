@@ -1,13 +1,12 @@
-import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/assets/images_assets.dart';
-import '../../../../core/design_system/platinum_button_contoured.dart';
-import '../../../../core/design_system/platinum_button_full.dart';
-
-import 'package:bookstore/routes/routes.dart';
+import '../../../../core/platinum/platinum_button_full.dart';
+import '../../../../core/platinum/platinum_button_link.dart';
+import '../../../../core/platinum/platinum_spacing/platinum_padding.dart';
+import '../../../../routes/authentication_routes.dart';
+import '../../../../routes/routes.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -18,23 +17,12 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
-  void initState() {
-    super.initState();
-
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        systemNavigationBarColor: Color(0xFFEF5A5A),
-      ),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
     return Material(
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(PlatinumPadding.xvi),
         color: const Color(0xFFEF5A5A),
         child: SingleChildScrollView(
           child: Column(
@@ -45,7 +33,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 height: height * 0.50,
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(PlatinumPadding.xvi),
                     child: ImagesAssets.bookstoreLogoLight,
                   ),
                 ),
@@ -79,7 +67,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 32,
+                    height: PlatinumPadding.xxxii,
                   ),
                   PlatinumButtonFull(
                     data: "Create Account",
@@ -87,13 +75,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     onPressed: () {},
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: PlatinumPadding.xvi,
                   ),
-                  PlatinumButtonContoured(
+                  PlatinumButtonLink(
                     data: "Log In as Guest",
-                    typeButtonContoured: TypeButtonContoured.secondary,
+                    typeButtonLink: TypeButtonLink.secondary,
                     onPressed: () => Modular.to.pushNamed(
-                        AuthenticationRoutes.authenticationScreenInitialRoute),
+                      AuthenticationRoutes.authenticationScreenInitialRoute,
+                    ),
                   ),
                 ],
               )
