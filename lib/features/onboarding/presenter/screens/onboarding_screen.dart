@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/assets/images_assets.dart';
-import '../../../../core/platinum/platinum_button_full.dart';
-import '../../../../core/platinum/platinum_button_link.dart';
-import '../../../../core/platinum/platinum_spacing/platinum_padding.dart';
+import '../../../../core/platinum/components/platinum_button_contoured.dart';
+import '../../../../core/platinum/components/platinum_button_full.dart';
+import '../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../../routes/authentication_routes.dart';
 import '../../../../routes/routes.dart';
 
@@ -77,9 +77,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   const SizedBox(
                     height: PlatinumPadding.xvi,
                   ),
-                  PlatinumButtonLink(
+                  PlatinumButtonContoured(
                     data: "Log In as Guest",
-                    typeButtonLink: TypeButtonLink.secondary,
+                    typeButtonContoured: TypeButtonContoured.secondary,
                     onPressed: () => Modular.to.pushNamed(
                       AuthenticationRoutes.authenticationScreenInitialRoute,
                     ),

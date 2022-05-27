@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/assets/images_assets.dart';
-import '../../../../../core/platinum/platinum_button_full.dart';
-import '../../../../../core/platinum/platinum_spacing/platinum_padding.dart';
+import '../../../../../core/platinum/components/platinum_button_full.dart';
+import '../../../../../core/platinum/components/platinum_button_link.dart';
+import '../../../../../core/platinum/spacing/platinum_padding.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -14,11 +15,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,31 +98,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: SizedBox(
                   height: PlatinumPadding.xxxxviii,
-                  child: TextButton(
+                  child: PlatinumButtonLink(
+                    text: "Don’t have an account yet?",
+                    textHighlighted: " Sign up here",
                     onPressed: () {},
-                    style: TextButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(PlatinumPadding.viii),
-                        ),
-                      ),
-                    ),
-                    child: RichText(
-                      text: const TextSpan(
-                        text: "Don’t have an account yet?",
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
-                        children: <InlineSpan>[
-                          TextSpan(
-                            text: " Sign up here",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
                 ),
               ),

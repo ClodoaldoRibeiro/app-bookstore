@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'platinum_spacing/platinum_padding.dart';
+import '../spacing/platinum_padding.dart';
 
 enum TypeButtonFull {
   primary,
