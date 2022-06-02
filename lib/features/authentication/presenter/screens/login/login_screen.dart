@@ -1,3 +1,4 @@
+import 'package:bookstore/features/authentication/presenter/screens/login/login_sentences.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/assets/images_assets.dart';
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Username',
+                    hintText: LoginSentences.username,
                     suffixIcon: Icon(
                       Icons.check_circle_rounded,
                       color: Colors.green,
@@ -63,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    hintText: 'Password',
+                    hintText: LoginSentences.password,
                     suffixIcon: IconButton(
                       onPressed: () {},
                       icon: const Icon(
@@ -84,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   horizontal: PlatinumPadding.xvi,
                 ),
                 child: PlatinumButtonFull(
-                  data: "Log In",
+                  data: LoginSentences.logIn,
                   typeButtonFull: TypeButtonFull.primary,
                   onPressed: () {},
                 ),
@@ -99,8 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: SizedBox(
                   height: PlatinumPadding.xxxxviii,
                   child: PlatinumButtonLink(
-                    text: "Don’t have an account yet?",
-                    textHighlighted: " Sign up here",
+                    text: LoginSentences.dontAccount,
+                    textHighlighted: LoginSentences.signUp,
                     onPressed: () {},
                   ),
                 ),
