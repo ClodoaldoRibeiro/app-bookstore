@@ -1,14 +1,19 @@
-import 'package:bookstore/features/authentication/presenter/screens/login/login_sentences.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../../core/assets/images_assets.dart';
 import '../../../../../core/platinum/components/platinum_button_full.dart';
 import '../../../../../core/platinum/components/platinum_button_link.dart';
 import '../../../../../core/platinum/spacing/platinum_padding.dart';
+import 'login_controller.dart';
+import 'login_sentences.dart';
 
 class LoginScreen extends StatefulWidget {
+  final LoginController loginController;
+
   const LoginScreen({
     Key? key,
+    required this.loginController,
   }) : super(key: key);
 
   @override
@@ -40,41 +45,27 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: PlatinumPadding.xvi,
                 ),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: LoginSentences.username,
-                    suffixIcon: Icon(
-                      Icons.check_circle_rounded,
-                      color: Colors.green,
-                    ),
-                    prefix: SizedBox(
-                      width: PlatinumPadding.viii,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    hintText: LoginSentences.password,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.visibility_outlined,
+                child: Observer(
+                  builder: (context) {
+                    return TextFormField(
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        hintText: LoginSentences.username,
+                        suffixIcon: Icon(
+                          widget.loginController.userNameValid
+                              ? Icons.check_circle_rounded
+                              : Icons.error_rounded,
+                        ),
+                        prefix: const SizedBox(
+                          width: PlatinumPadding.viii,
+                        ),
+                        errorText: widget.loginController.userNameError,
                       ),
-                    ),
-                    prefix: const SizedBox(
-                      width: PlatinumPadding.viii,
-                    ),
-                  ),
+                      onChanged: (newValue) {
+                        widget.loginController.userName = newValue;
+                      },
+                    );
+                  },
                 ),
               ),
               const SizedBox(
@@ -84,10 +75,53 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(
                   horizontal: PlatinumPadding.xvi,
                 ),
-                child: PlatinumButtonFull(
-                  data: LoginSentences.logIn,
-                  typeButtonFull: TypeButtonFull.primary,
-                  onPressed: () {},
+                child: Observer(
+                  builder: (context) {
+                    return TextFormField(
+                      obscureText: !widget.loginController.passwordVisible,
+                      onChanged: (newValue) {
+                        widget.loginController.password = newValue;
+                      },
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(),
+                        hintText: LoginSentences.password,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            widget.loginController.setPasswordVisible(
+                              visible: !widget.loginController.passwordVisible,
+                            );
+                          },
+                          icon: Icon(
+                            widget.loginController.passwordVisible
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined,
+                          ),
+                        ),
+                        prefix: const SizedBox(
+                          width: PlatinumPadding.viii,
+                        ),
+                        errorText: widget.loginController.passwordError,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: PlatinumPadding.xxiv,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PlatinumPadding.xvi,
+                ),
+                child: Observer(
+                  builder: (context) {
+                    return PlatinumButtonFull(
+                      data: LoginSentences.logIn,
+                      typeButtonFull: TypeButtonFull.primary,
+                      onPressed:
+                          widget.loginController.formValid ? () {} : null,
+                    );
+                  },
                 ),
               ),
               const SizedBox(

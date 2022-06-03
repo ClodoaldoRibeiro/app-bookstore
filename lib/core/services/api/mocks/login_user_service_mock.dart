@@ -10,7 +10,6 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
@@ -20,7 +19,6 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) {
-    // TODO: implement downloadFile
     throw UnimplementedError();
   }
 
@@ -61,7 +59,6 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) {
-    // TODO: implement patch
     throw UnimplementedError();
   }
 
@@ -72,7 +69,6 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) {
-    // TODO: implement post
     throw UnimplementedError();
   }
 
@@ -83,7 +79,6 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) {
-    // TODO: implement put
     throw UnimplementedError();
   }
 }

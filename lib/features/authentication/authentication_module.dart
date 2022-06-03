@@ -1,7 +1,8 @@
-import 'package:bookstore/features/authentication/presenter/screens/login/login_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../routes/routes.dart';
+import 'presenter/screens/login/login_controller.dart';
+import 'presenter/screens/login/login_screen.dart';
 
 class AuthenticationModule extends Module {
   @override
@@ -10,7 +11,9 @@ class AuthenticationModule extends Module {
       ChildRoute(
         AuthenticationRoutes.authenticationScreenRoute,
         child: (_, __) {
-          return const LoginScreen();
+          return LoginScreen(
+            loginController: LoginController(),
+          );
         },
       ),
     ];
