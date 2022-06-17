@@ -5,7 +5,8 @@ import '../../../../../core/assets/images_assets.dart';
 import '../../../../../core/platinum/components/platinum_button_full.dart';
 import '../../../../../core/platinum/components/platinum_button_link.dart';
 import '../../../../../core/platinum/spacing/platinum_padding.dart';
-import 'login_controller.dart';
+import '../../controllers/login_controller.dart';
+import '../../controllers/login_current_state.dart';
 import 'login_sentences.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,9 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: const OutlineInputBorder(),
                         hintText: LoginSentences.username,
                         suffixIcon: Icon(
-                          widget.loginController.userNameValid
-                              ? Icons.check_circle_rounded
-                              : Icons.error_rounded,
+                          widget.loginController.userNameValid ? Icons.check_circle_rounded : Icons.error_rounded,
                         ),
                         prefix: const SizedBox(
                           width: PlatinumPadding.viii,
@@ -118,8 +117,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     return PlatinumButtonFull(
                       data: LoginSentences.logIn,
                       typeButtonFull: TypeButtonFull.primary,
-                      onPressed:
-                          widget.loginController.formValid ? () {} : null,
+                      onPressed: widget.loginController.formValid ? widget.loginController.authenticate : null,
+                      isLoading: widget.loginController.loginCurrentState is LoadingLoginCurrentState,
                     );
                   },
                 ),

@@ -93,6 +93,22 @@ mixin _$LoginController on _LoginController, Store {
     });
   }
 
+  late final _$loginCurrentStateAtom =
+      Atom(name: '_LoginController.loginCurrentState', context: context);
+
+  @override
+  LoginCurrentState get loginCurrentState {
+    _$loginCurrentStateAtom.reportRead();
+    return super.loginCurrentState;
+  }
+
+  @override
+  set loginCurrentState(LoginCurrentState value) {
+    _$loginCurrentStateAtom.reportWrite(value, super.loginCurrentState, () {
+      super.loginCurrentState = value;
+    });
+  }
+
   late final _$_LoginControllerActionController =
       ActionController(name: '_LoginController', context: context);
 
@@ -113,6 +129,7 @@ mixin _$LoginController on _LoginController, Store {
 userName: ${userName},
 password: ${password},
 passwordVisible: ${passwordVisible},
+loginCurrentState: ${loginCurrentState},
 userNameError: ${userNameError},
 userNameValid: ${userNameValid},
 passwordError: ${passwordError},
