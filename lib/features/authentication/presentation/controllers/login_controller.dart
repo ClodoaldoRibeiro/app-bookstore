@@ -101,7 +101,7 @@ abstract class _LoginController with Store {
       (userSession) {
         sesseionController.userEntity = userSession;
         sesseionController.dateTimeLogin = DateTime.now();
-        loginCurrentState = loginCurrentState.loadedLoginCurrentState();
+        loginCurrentState = loginCurrentState.errorLoginCurrentState();
       },
     );
   }
