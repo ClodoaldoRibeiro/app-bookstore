@@ -1,6 +1,7 @@
-import 'package:bookstore/routes/onboarding_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'routes/onboarding_routes.dart';
 import 'routes/routes.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +14,6 @@ class AppWidget extends StatelessWidget {
     return MaterialApp.router(
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
         fontFamily: "Helvetica",
