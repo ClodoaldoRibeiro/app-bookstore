@@ -16,12 +16,12 @@ mixin _$LoginController on _LoginController, Store {
       (_$userNameErrorComputed ??= Computed<String?>(() => super.userNameError,
               name: '_LoginController.userNameError'))
           .value;
-  Computed<bool>? _$userNameValidComputed;
+  Computed<bool>? _$isValidUserNameComputed;
 
   @override
-  bool get userNameValid =>
-      (_$userNameValidComputed ??= Computed<bool>(() => super.userNameValid,
-              name: '_LoginController.userNameValid'))
+  bool get isValidUserName =>
+      (_$isValidUserNameComputed ??= Computed<bool>(() => super.isValidUserName,
+              name: '_LoginController.isValidUserName'))
           .value;
   Computed<String?>? _$passwordErrorComputed;
 
@@ -30,19 +30,19 @@ mixin _$LoginController on _LoginController, Store {
       (_$passwordErrorComputed ??= Computed<String?>(() => super.passwordError,
               name: '_LoginController.passwordError'))
           .value;
-  Computed<bool>? _$passwordValidComputed;
+  Computed<bool>? _$isValidPasswordComputed;
 
   @override
-  bool get passwordValid =>
-      (_$passwordValidComputed ??= Computed<bool>(() => super.passwordValid,
-              name: '_LoginController.passwordValid'))
+  bool get isValidPassword =>
+      (_$isValidPasswordComputed ??= Computed<bool>(() => super.isValidPassword,
+              name: '_LoginController.isValidPassword'))
           .value;
-  Computed<bool>? _$formValidComputed;
+  Computed<bool>? _$isValidFormComputed;
 
   @override
-  bool get formValid =>
-      (_$formValidComputed ??= Computed<bool>(() => super.formValid,
-              name: '_LoginController.formValid'))
+  bool get isValidForm =>
+      (_$isValidFormComputed ??= Computed<bool>(() => super.isValidForm,
+              name: '_LoginController.isValidForm'))
           .value;
 
   late final _$userNameAtom =
@@ -131,10 +131,10 @@ password: ${password},
 passwordVisible: ${passwordVisible},
 loginCurrentState: ${loginCurrentState},
 userNameError: ${userNameError},
-userNameValid: ${userNameValid},
+isValidUserName: ${isValidUserName},
 passwordError: ${passwordError},
-passwordValid: ${passwordValid},
-formValid: ${formValid}
+isValidPassword: ${isValidPassword},
+isValidForm: ${isValidForm}
     ''';
   }
 }

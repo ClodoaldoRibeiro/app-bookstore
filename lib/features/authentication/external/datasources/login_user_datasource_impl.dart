@@ -1,7 +1,7 @@
-import 'package:bookstore/features/authentication/data/datasources/login_user_datasource.dart';
-import 'package:bookstore/features/authentication/data/models/user_model.dart';
-
+import '../../../../core/services/api/api_response.dart';
 import '../../../../core/services/api/api_service.dart';
+import '../../data/datasources/login_user_datasource.dart';
+import '../../data/models/user_model.dart';
 import '../mappers/login_user_model_mapper.dart';
 
 class LoginUserDatasourceImpl implements LoginUserDatasource {
@@ -15,12 +15,12 @@ class LoginUserDatasourceImpl implements LoginUserDatasource {
         _loginUserModelMapper = loginUserModelMapper;
 
   @override
-  Future<UserModel> call({
+  Future<UserModel?> call({
     required String userName,
     required String password,
   }) async {
     const String path = '/get-user-mok/1239754566308563382';
-    final jsonResultData = await _apiService.get(
+    final ApiResponse<String> jsonResultData = await _apiService.get(
       path,
       headers: {
         "userName": userName,
@@ -28,8 +28,16 @@ class LoginUserDatasourceImpl implements LoginUserDatasource {
       },
     );
 
-    return _loginUserModelMapper.fromJson(
-      userJson: jsonResultData.data!,
-    );
+    if (jsonResultData.statusCode == 200 || jsonResultData.statusCode == 201) {
+      return _loginUserModelMapper.fromJson(
+        userJson: jsonResultData.data!,
+      );
+    }
+
+    if (jsonResultData.statusCode == 400 || jsonResultData.statusCode == 401) {
+      return null;
+    }
+
+    return null;
   }
 }

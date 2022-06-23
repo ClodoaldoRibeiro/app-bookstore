@@ -1,14 +1,25 @@
 import '../../domain/entities/user_entity.dart';
 
 class SessionController {
-  UserEntity? userEntity;
+  UserEntity? _userEntity;
   DateTime? dateTimeLogin;
 
   bool loggedUser() {
-    return userEntity != null;
+    return _userEntity != null;
   }
 
   void logout() {
-    userEntity = null;
+    _userEntity = null;
+  }
+
+  void configureLoggedUser({
+    required UserEntity userEntity,
+  }) {
+    _userEntity = userEntity;
+    dateTimeLogin = DateTime.now();
+  }
+
+  UserEntity? getUser() {
+    return _userEntity;
   }
 }

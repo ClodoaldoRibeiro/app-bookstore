@@ -19,10 +19,10 @@ abstract class _LoginController with Store {
   });
 
   @observable
-  String userName = 'private_types_in';
+  String userName = '';
 
   @observable
-  String password = 'private_types_in';
+  String password = '';
 
   @observable
   bool passwordVisible = false;
@@ -44,12 +44,8 @@ abstract class _LoginController with Store {
   }
 
   @computed
-  bool get userNameValid {
-    if (userNameError != null || userName == 'private_types_in') {
-      return false;
-    }
-
-    return true;
+  bool get isValidUserName {
+    return userNameError == null ? true : false;
   }
 
   @computed
@@ -66,12 +62,8 @@ abstract class _LoginController with Store {
   }
 
   @computed
-  bool get passwordValid {
-    if (passwordError != null || password == 'private_types_in') {
-      return false;
-    }
-
-    return true;
+  bool get isValidPassword {
+    return passwordError == null ? true : false;
   }
 
   @action
@@ -82,8 +74,8 @@ abstract class _LoginController with Store {
   }
 
   @computed
-  bool get formValid {
-    return userNameValid && passwordValid;
+  bool get isValidForm {
+    return isValidUserName && isValidPassword;
   }
 
   void authenticate() async {
@@ -99,9 +91,11 @@ abstract class _LoginController with Store {
         loginCurrentState = loginCurrentState.errorLoginCurrentState();
       },
       (userSession) {
-        sesseionController.userEntity = userSession;
-        sesseionController.dateTimeLogin = DateTime.now();
-        loginCurrentState = loginCurrentState.errorLoginCurrentState();
+        sesseionController.configureLoggedUser(
+          userEntity: userSession,
+        );
+
+        loginCurrentState = loginCurrentState.loadedLoginCurrentState();
       },
     );
   }

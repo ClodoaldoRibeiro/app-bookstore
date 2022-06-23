@@ -27,6 +27,10 @@ class LoginUserRepositoryImpl implements LoginUserRepository {
         password: password,
       );
 
+      if (userModel == null) {
+        return const Left(LoginUserFailure());
+      }
+
       final userEntity = _userEntityAdapter.fromModel(
         userModel: userModel,
       );

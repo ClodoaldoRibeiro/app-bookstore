@@ -28,28 +28,60 @@ class LoginUserServiceMock implements ApiService {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? headers,
   }) async {
-    final dataEncode = {
-      "name": "Jose da Silca",
-      "userName": "jose.dasilva",
-      "email": "jose_silva@gmail.com",
-      "password": "123456",
-      "urlPhoto":
-          "https://cdn.icon-icons.com/icons2/582/PNG/512/boy_icon-icons.com_55048.png",
-    };
+    const String password = '123456';
+    final String headerPasswprd = headers!['password'] as String;
 
-    final data = jsonEncode(
-      dataEncode,
+    if (headerPasswprd == password) {
+      var jsonParse = jsonEncode(
+        _successResponse(),
+      );
+
+      return Future.delayed(
+        const Duration(
+          seconds: 5,
+        ),
+      ).then(
+        (value) {
+          return ApiResponse<String>(
+            statusCode: 200,
+            data: jsonParse,
+          );
+        },
+      );
+    }
+
+    var jsonParse = jsonEncode(
+      _errorResponse(),
     );
 
     return Future.delayed(
       const Duration(
-        seconds: 4,
+        seconds: 5,
       ),
     ).then(
-      (value) => ApiResponse<String>(
-        data: data,
-      ),
+      (value) {
+        return ApiResponse<String>(
+          statusCode: 401,
+          data: jsonParse,
+        );
+      },
     );
+  }
+
+  Map<String, dynamic> _errorResponse() {
+    return {
+      "message": "Login ou senha invalido",
+    };
+  }
+
+  Map<String, dynamic> _successResponse() {
+    return {
+      'name': 'Jose da Silca',
+      'userName': 'jose.dasilva',
+      'email': 'jose_silva@gmail.com',
+      'password': '123456',
+      'urlPhoto': 'https://cdn.icon-icons.com/icons2/582/PNG/512/boy_icon-icons.com_55048.png',
+    };
   }
 
   @override

@@ -24,6 +24,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool applyPasswordValidation = false;
+  bool applyUserNameValidation = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,15 +81,19 @@ class _LoginScreenState extends State<LoginScreen> {
                               border: const OutlineInputBorder(),
                               hintText: LoginSentences.username,
                               suffixIcon: Icon(
-                                widget.loginController.userNameValid ? Icons.check_circle_rounded : Icons.error_rounded,
+                                widget.loginController.isValidUserName
+                                    ? Icons.check_circle_rounded
+                                    : Icons.error_rounded,
                               ),
                               prefix: const SizedBox(
                                 width: PlatinumPadding.viii,
                               ),
-                              errorText: widget.loginController.userNameError,
+                              errorText: applyUserNameValidation ? widget.loginController.userNameError : null,
                             ),
+                            initialValue: widget.loginController.userName,
                             onChanged: (newValue) {
                               widget.loginController.userName = newValue;
+                              applyUserNameValidation = true;
                             },
                           );
                         },
@@ -105,7 +112,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             obscureText: !widget.loginController.passwordVisible,
                             onChanged: (newValue) {
                               widget.loginController.password = newValue;
+                              applyPasswordValidation = true;
                             },
+                            initialValue: widget.loginController.password,
                             decoration: InputDecoration(
                               border: const OutlineInputBorder(),
                               hintText: LoginSentences.password,
@@ -124,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               prefix: const SizedBox(
                                 width: PlatinumPadding.viii,
                               ),
-                              errorText: widget.loginController.passwordError,
+                              errorText: applyPasswordValidation ? widget.loginController.passwordError : null,
                             ),
                           );
                         },
@@ -142,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           return PlatinumButtonFull(
                             data: LoginSentences.logIn,
                             typeButtonFull: TypeButtonFull.primary,
-                            onPressed: widget.loginController.formValid ? widget.loginController.authenticate : null,
+                            onPressed: widget.loginController.isValidForm ? widget.loginController.authenticate : null,
                           );
                         },
                       ),

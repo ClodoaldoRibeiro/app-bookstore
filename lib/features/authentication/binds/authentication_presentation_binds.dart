@@ -5,7 +5,7 @@ import '../presentation/controllers/login_controller.dart';
 abstract class AuthenticationPresenterBinds {
   static List<Bind<Object>> binds = [
     // Controllers
-    Bind.singleton(
+    Bind.factory(
       (i) {
         return LoginController(
           loginUserUsecase: i.get(),
