@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:bookstore/features/authentication/data/models/user_model.dart';
+import '../../data/models/user_model.dart';
 
-class LoginUserModelMapper {
+class UserModelMapper {
   UserModel fromMap({
     required Map<String, dynamic> userMap,
   }) {
