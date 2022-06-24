@@ -72,7 +72,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   PlatinumButtonFull(
                     data: "Create Account",
                     typeButtonFull: TypeButtonFull.secondary,
-                    onPressed: () {},
+                    onPressed: () => Modular.to.pushNamed(
+                      AuthenticationRoutes.toAuthenticationSignUpScreenRoute,
+                    ),
                   ),
                   const SizedBox(
                     height: PlatinumPadding.xvi,
@@ -81,7 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     data: "Log In as Guest",
                     typeButtonContoured: TypeButtonContoured.secondary,
                     onPressed: () => Modular.to.pushNamed(
-                      AuthenticationRoutes.authenticationScreenInitialRoute,
+                      AuthenticationRoutes.toAuthenticationScreenInitialRoute,
                     ),
                   ),
                 ],
