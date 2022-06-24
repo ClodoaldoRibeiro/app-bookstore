@@ -16,4 +16,22 @@ abstract class _SignUpController with Store {
     required this.registerUserUsecase,
     required this.sesseionController,
   });
+
+  @observable
+  String name = '';
+
+  @observable
+  String userName = '';
+
+  @observable
+  String email = '';
+
+  @observable
+  String password = '';
+
+  @observable
+  bool passwordVisible = false;
+
+  // @observable
+  // LoginCurrentState loginCurrentState = InitialLoginCurrentState();
 }
