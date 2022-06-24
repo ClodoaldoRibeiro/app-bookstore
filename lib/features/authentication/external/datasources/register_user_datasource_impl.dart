@@ -22,7 +22,7 @@ class RegisterUserDatasourceImpl implements RegisterUserDatasource {
     required String password,
   }) async {
     const String path = '/register-user-mok/232222254';
-    final ApiResponse<String> jsonResultData = await _apiService.put(
+    final ApiResponse<String> jsonResultData = await _apiService.post(
       path,
       headers: {
         "name": name,
