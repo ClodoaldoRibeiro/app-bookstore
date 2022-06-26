@@ -1,5 +1,7 @@
+import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../core/assets/images_assets.dart';
 import '../../../../../core/platinum/components/platinum_button_full.dart';
@@ -32,7 +34,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Observer(
         builder: (context) {
-          if (widget.loginController.loginCurrentState is ErrorLoginCurrentState) {
+          if (widget.loginController.loginCurrentState
+              is ErrorLoginCurrentState) {
             Future.delayed(
               const Duration(seconds: 1),
             ).then((value) {
@@ -48,7 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
             });
           }
 
-          if (widget.loginController.loginCurrentState is LoadingLoginCurrentState) {
+          if (widget.loginController.loginCurrentState
+              is LoadingLoginCurrentState) {
             return const PlatinumLoading();
           }
 
@@ -88,7 +92,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               prefix: const SizedBox(
                                 width: PlatinumPadding.viii,
                               ),
-                              errorText: applyUserNameValidation ? widget.loginController.userNameError : null,
+                              errorText: applyUserNameValidation
+                                  ? widget.loginController.userNameError
+                                  : null,
                             ),
                             initialValue: widget.loginController.userName,
                             onChanged: (newValue) {
@@ -109,7 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Observer(
                         builder: (context) {
                           return TextFormField(
-                            obscureText: !widget.loginController.passwordVisible,
+                            obscureText:
+                                !widget.loginController.passwordVisible,
                             onChanged: (newValue) {
                               widget.loginController.password = newValue;
                               applyPasswordValidation = true;
@@ -121,7 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               suffixIcon: IconButton(
                                 onPressed: () {
                                   widget.loginController.setPasswordVisible(
-                                    visible: !widget.loginController.passwordVisible,
+                                    visible:
+                                        !widget.loginController.passwordVisible,
                                   );
                                 },
                                 icon: Icon(
@@ -133,7 +141,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               prefix: const SizedBox(
                                 width: PlatinumPadding.viii,
                               ),
-                              errorText: applyPasswordValidation ? widget.loginController.passwordError : null,
+                              errorText: applyPasswordValidation
+                                  ? widget.loginController.passwordError
+                                  : null,
                             ),
                           );
                         },
@@ -151,7 +161,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           return PlatinumButtonFull(
                             data: LoginSentences.logIn,
                             typeButtonFull: TypeButtonFull.primary,
-                            onPressed: widget.loginController.isValidForm ? widget.loginController.authenticate : null,
+                            onPressed: widget.loginController.isValidForm
+                                ? widget.loginController.authenticate
+                                : null,
                           );
                         },
                       ),
@@ -168,7 +180,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: PlatinumButtonLink(
                           text: LoginSentences.dontAccount,
                           textHighlighted: LoginSentences.signUp,
-                          onPressed: () {},
+                          onPressed: () => Modular.to.pushReplacementNamed(
+                            AuthenticationRoutes
+                                .toAuthenticationSignUpScreenRoute,
+                          ),
                         ),
                       ),
                     ),
