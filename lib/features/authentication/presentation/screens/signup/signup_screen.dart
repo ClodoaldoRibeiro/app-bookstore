@@ -1,7 +1,3 @@
-import 'package:bookstore/core/platinum/components/platinum_loading.dart';
-import 'package:bookstore/core/platinum/components/platinum_snack_bar.dart';
-import 'package:bookstore/features/authentication/presentation/controllers/signup_current_state.dart';
-import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,8 +5,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../core/assets/images_assets.dart';
 import '../../../../../core/platinum/components/platinum_button_full.dart';
 import '../../../../../core/platinum/components/platinum_button_link.dart';
+import '../../../../../core/platinum/components/platinum_loading.dart';
+import '../../../../../core/platinum/components/platinum_snack_bar.dart';
 import '../../../../../core/platinum/spacing/platinum_padding.dart';
+import '../../../../../routes/authentication_routes.dart';
 import '../../controllers/signup_controller.dart';
+import '../../controllers/signup_current_state.dart';
 import 'signup_sentences.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -38,7 +38,7 @@ class SignUpScreenState extends State<SignUpScreen> {
         builder: (context) {
           if (widget.signUpController.statusPage is LoadingSignUpCurrentState) {
             return const PlatinumLoading(
-              message: 'Realizando cadastro, por favor aguarde...',
+              message: 'Registering, please wait...',
             );
           }
 
@@ -48,9 +48,9 @@ class SignUpScreenState extends State<SignUpScreen> {
             ).then((value) {
               ScaffoldMessenger.of(context).showSnackBar(
                 PlatinumSnackBar.success(
-                  message: 'Login realizado com sucesso!',
+                  message: 'Login successfully!',
                   action: PlatinumSnackBarAction(
-                    label: 'Concluir',
+                    label: 'Finish',
                     onPressed: () {},
                   ),
                 ),
@@ -66,7 +66,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                 PlatinumSnackBar.error(
                   message: SignUpSentences.messegeError,
                   action: PlatinumSnackBarAction(
-                    label: 'Repetir',
+                    label: 'Repeat',
                     onPressed: () {},
                   ),
                 ),

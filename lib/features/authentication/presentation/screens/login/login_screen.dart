@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 PlatinumSnackBar.error(
                   message: LoginSentences.messegeError,
                   action: PlatinumSnackBarAction(
-                    label: 'Repetir',
+                    label: 'Repeat',
                     onPressed: () {},
                   ),
                 ),
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (widget.loginController.loginCurrentState
               is LoadingLoginCurrentState) {
             return const PlatinumLoading(
-              message: 'Por favor, aguarde...',
+              message: 'Please wait...',
             );
           }
 
