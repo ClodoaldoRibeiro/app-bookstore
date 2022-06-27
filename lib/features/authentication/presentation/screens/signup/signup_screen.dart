@@ -1,3 +1,6 @@
+import 'package:bookstore/core/platinum/components/platinum_loading.dart';
+import 'package:bookstore/core/platinum/components/platinum_snack_bar.dart';
+import 'package:bookstore/features/authentication/presentation/controllers/signup_current_state.dart';
 import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -31,214 +34,258 @@ class SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: PlatinumPadding.xvi,
-                    vertical: PlatinumPadding.xxxii,
+      body: Observer(
+        builder: (context) {
+          if (widget.signUpController.statusPage is LoadingSignUpCurrentState) {
+            return const PlatinumLoading(
+              message: 'Realizando cadastro, por favor aguarde...',
+            );
+          }
+
+          if (widget.signUpController.statusPage is LoadedSignUpCurrentState) {
+            Future.delayed(
+              const Duration(seconds: 1),
+            ).then((value) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                PlatinumSnackBar.success(
+                  message: 'Login realizado com sucesso!',
+                  action: PlatinumSnackBarAction(
+                    label: 'Concluir',
+                    onPressed: () {},
                   ),
-                  child: SizedBox(
-                    height: 115,
-                    width: 124,
-                    child: ImagesAssets.bookstore,
+                ),
+              );
+            });
+          }
+
+          if (widget.signUpController.statusPage is ErrorSignUpCurrentState) {
+            Future.delayed(
+              const Duration(seconds: 1),
+            ).then((value) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                PlatinumSnackBar.error(
+                  message: SignUpSentences.messegeError,
+                  action: PlatinumSnackBarAction(
+                    label: 'Repetir',
+                    onPressed: () {},
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return TextFormField(
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: SignUpSentences.name,
-                        suffixIcon: Icon(
-                          widget.signUpController.isValidName
-                              ? Icons.check_circle_rounded
-                              : Icons.error_rounded,
-                        ),
-                        prefix: const SizedBox(
-                          width: PlatinumPadding.viii,
-                        ),
-                        errorText: applyNameValidation
-                            ? widget.signUpController.nameError
-                            : null,
+              );
+            });
+          }
+
+          return Center(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: PlatinumPadding.xvi,
+                        vertical: PlatinumPadding.xxxii,
                       ),
-                      initialValue: widget.signUpController.name,
-                      onChanged: (newValue) {
-                        widget.signUpController.name = newValue;
-                        applyNameValidation = true;
-                      },
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return TextFormField(
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: SignUpSentences.userName,
-                        suffixIcon: Icon(
-                          widget.signUpController.isValidUserName
-                              ? Icons.check_circle_rounded
-                              : Icons.error_rounded,
-                        ),
-                        prefix: const SizedBox(
-                          width: PlatinumPadding.viii,
-                        ),
-                        errorText: applyUserNameValidation
-                            ? widget.signUpController.userNameError
-                            : null,
+                      child: SizedBox(
+                        height: 115,
+                        width: 124,
+                        child: ImagesAssets.bookstore,
                       ),
-                      initialValue: widget.signUpController.userName,
-                      onChanged: (newValue) {
-                        widget.signUpController.userName = newValue;
-                        applyUserNameValidation = true;
-                      },
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return TextFormField(
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: SignUpSentences.email,
-                        suffixIcon: Icon(
-                          widget.signUpController.isValidEmail
-                              ? Icons.check_circle_rounded
-                              : Icons.error_rounded,
-                        ),
-                        prefix: const SizedBox(
-                          width: PlatinumPadding.viii,
-                        ),
-                        errorText: applyEmailValidation
-                            ? widget.signUpController.emailError
-                            : null,
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                      initialValue: widget.signUpController.email,
-                      onChanged: (newValue) {
-                        widget.signUpController.email = newValue;
-                        applyEmailValidation = true;
-                      },
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return TextFormField(
-                      obscureText: !widget.signUpController.passwordVisible,
-                      onChanged: (newValue) {
-                        widget.signUpController.password = newValue;
-                        applyPasswordValidation = true;
-                      },
-                      initialValue: widget.signUpController.password,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        hintText: SignUpSentences.password,
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            widget.signUpController.setPasswordVisible(
-                              visible: !widget.signUpController.passwordVisible,
-                            );
-                          },
-                          icon: Icon(
-                            widget.signUpController.passwordVisible
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: Observer(
+                      builder: (context) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            hintText: SignUpSentences.name,
+                            suffixIcon: Icon(
+                              widget.signUpController.isValidName
+                                  ? Icons.check_circle_rounded
+                                  : Icons.error_rounded,
+                            ),
+                            prefix: const SizedBox(
+                              width: PlatinumPadding.viii,
+                            ),
+                            errorText: applyNameValidation
+                                ? widget.signUpController.nameError
+                                : null,
                           ),
-                        ),
-                        prefix: const SizedBox(
-                          width: PlatinumPadding.viii,
-                        ),
-                        errorText: applyPasswordValidation
-                            ? widget.signUpController.passwordError
-                            : null,
-                      ),
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: Observer(
-                  builder: (context) {
-                    return PlatinumButtonFull(
-                      data: SignUpSentences.createAccount,
-                      typeButtonFull: TypeButtonFull.primary,
-                      onPressed: widget.signUpController.isValidForm
-                          ? widget.signUpController.register
-                          : null,
-                    );
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PlatinumPadding.xvi,
-                ),
-                child: SizedBox(
-                  height: PlatinumPadding.xxxxviii,
-                  child: PlatinumButtonLink(
-                    text: SignUpSentences.alreadyAccount,
-                    textHighlighted: SignUpSentences.logInHere,
-                    onPressed: () {
-                      Modular.to.pushReplacementNamed(
-                        AuthenticationRoutes.toAuthenticationScreenInitialRoute,
-                      );
-                    },
+                          initialValue: widget.signUpController.name,
+                          onChanged: (newValue) {
+                            widget.signUpController.name = newValue;
+                            applyNameValidation = true;
+                          },
+                        );
+                      },
+                    ),
                   ),
-                ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: Observer(
+                      builder: (context) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            hintText: SignUpSentences.userName,
+                            suffixIcon: Icon(
+                              widget.signUpController.isValidUserName
+                                  ? Icons.check_circle_rounded
+                                  : Icons.error_rounded,
+                            ),
+                            prefix: const SizedBox(
+                              width: PlatinumPadding.viii,
+                            ),
+                            errorText: applyUserNameValidation
+                                ? widget.signUpController.userNameError
+                                : null,
+                          ),
+                          initialValue: widget.signUpController.userName,
+                          onChanged: (newValue) {
+                            widget.signUpController.userName = newValue;
+                            applyUserNameValidation = true;
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: Observer(
+                      builder: (context) {
+                        return TextFormField(
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            hintText: SignUpSentences.email,
+                            suffixIcon: Icon(
+                              widget.signUpController.isValidEmail
+                                  ? Icons.check_circle_rounded
+                                  : Icons.error_rounded,
+                            ),
+                            prefix: const SizedBox(
+                              width: PlatinumPadding.viii,
+                            ),
+                            errorText: applyEmailValidation
+                                ? widget.signUpController.emailError
+                                : null,
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          initialValue: widget.signUpController.email,
+                          onChanged: (newValue) {
+                            widget.signUpController.email = newValue;
+                            applyEmailValidation = true;
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: Observer(
+                      builder: (context) {
+                        return TextFormField(
+                          obscureText: !widget.signUpController.passwordVisible,
+                          onChanged: (newValue) {
+                            widget.signUpController.password = newValue;
+                            applyPasswordValidation = true;
+                          },
+                          initialValue: widget.signUpController.password,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            hintText: SignUpSentences.password,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                widget.signUpController.setPasswordVisible(
+                                  visible:
+                                      !widget.signUpController.passwordVisible,
+                                );
+                              },
+                              icon: Icon(
+                                widget.signUpController.passwordVisible
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                              ),
+                            ),
+                            prefix: const SizedBox(
+                              width: PlatinumPadding.viii,
+                            ),
+                            errorText: applyPasswordValidation
+                                ? widget.signUpController.passwordError
+                                : null,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: Observer(
+                      builder: (context) {
+                        return PlatinumButtonFull(
+                          data: SignUpSentences.createAccount,
+                          typeButtonFull: TypeButtonFull.primary,
+                          onPressed: widget.signUpController.isValidForm
+                              ? widget.signUpController.register
+                              : null,
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: PlatinumPadding.xvi,
+                    ),
+                    child: SizedBox(
+                      height: PlatinumPadding.xxxxviii,
+                      child: PlatinumButtonLink(
+                        text: SignUpSentences.alreadyAccount,
+                        textHighlighted: SignUpSentences.logInHere,
+                        onPressed: () {
+                          Modular.to.pushReplacementNamed(
+                            AuthenticationRoutes
+                                .toAuthenticationScreenInitialRoute,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: PlatinumPadding.xxiv,
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: PlatinumPadding.xxiv,
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

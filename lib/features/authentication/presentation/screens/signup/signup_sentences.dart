@@ -6,5 +6,5 @@ abstract class SignUpSentences {
   static const String alreadyAccount = "Already have an account?";
   static const String logInHere = " Log in here";
   static const String createAccount = "Create Account";
-  static const String messegeError = "Erro ao tentar fazer login";
+  static const String messegeError = "Erro ao tentar realizar cadastro";
 }

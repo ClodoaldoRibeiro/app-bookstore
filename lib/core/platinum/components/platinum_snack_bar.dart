@@ -70,6 +70,12 @@ abstract class PlatinumSnackBar extends SnackBar {
     PlatinumSnackBarAction? action,
     required String message,
   }) = _PlatinumSnackBarError;
+
+  factory PlatinumSnackBar.success({
+    Key? key,
+    PlatinumSnackBarAction? action,
+    required String message,
+  }) = _PlatinumSnackBarSuccess;
 }
 
 class _PlatinumSnackBarError extends PlatinumSnackBar {
@@ -81,11 +87,31 @@ class _PlatinumSnackBarError extends PlatinumSnackBar {
           key: key,
           message: message,
           duration: const Duration(seconds: 10),
-          dismissDirection: action == null ? DismissDirection.down : DismissDirection.none,
-          icon: Icons.error,
+          dismissDirection:
+              action == null ? DismissDirection.down : DismissDirection.none,
+          icon: Icons.error_outlined,
           iconColor: Colors.red,
           backgroundColor: const Color(0xFFF6D8DA),
           fontColor: const Color(0xFF080808),
+          action: action,
+        );
+}
+
+class _PlatinumSnackBarSuccess extends PlatinumSnackBar {
+  _PlatinumSnackBarSuccess({
+    Key? key,
+    PlatinumSnackBarAction? action,
+    required String message,
+  }) : super(
+          key: key,
+          message: message,
+          duration: const Duration(seconds: 10),
+          dismissDirection:
+              action == null ? DismissDirection.down : DismissDirection.none,
+          icon: Icons.check_circle_outlined,
+          iconColor: Colors.green,
+          backgroundColor: const Color(0xFFD6E7D7),
+          fontColor: Colors.black,
           action: action,
         );
 }

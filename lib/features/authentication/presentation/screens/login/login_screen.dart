@@ -53,7 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
           if (widget.loginController.loginCurrentState
               is LoadingLoginCurrentState) {
-            return const PlatinumLoading();
+            return const PlatinumLoading(
+              message: 'Por favor, aguarde...',
+            );
           }
 
           return Builder(builder: (context) {
