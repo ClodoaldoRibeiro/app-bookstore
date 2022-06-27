@@ -17,7 +17,7 @@ class PlatinumButtonLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: TextButton.styleFrom(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PlatinumLoading extends StatelessWidget {
-  const PlatinumLoading({Key? key}) : super(key: key);
+  final String message;
+
+  const PlatinumLoading({
+    Key? key,
+    required this.message,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +14,8 @@ class PlatinumLoading extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          SizedBox(
+        children: [
+          const SizedBox(
             height: 65,
             width: 65,
             child: CircularProgressIndicator(
@@ -18,12 +23,12 @@ class PlatinumLoading extends StatelessWidget {
               strokeWidth: 5,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Text(
-            'Por favor, aguarde...',
-            style: TextStyle(
+            message,
+            style: const TextStyle(
               fontSize: 12,
               color: Colors.grey,
             ),
