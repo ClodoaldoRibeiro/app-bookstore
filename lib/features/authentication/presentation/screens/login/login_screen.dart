@@ -1,4 +1,3 @@
-import 'package:bookstore/routes/authentication_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -9,6 +8,8 @@ import '../../../../../core/platinum/components/platinum_button_link.dart';
 import '../../../../../core/platinum/components/platinum_loading.dart';
 import '../../../../../core/platinum/components/platinum_snack_bar.dart';
 import '../../../../../core/platinum/spacing/platinum_padding.dart';
+import '../../../../../routes/authentication_routes.dart';
+import '../../../../../routes/home_routes.dart';
 import '../../controllers/login_controller.dart';
 import '../../controllers/login_current_state.dart';
 import 'login_sentences.dart';
@@ -34,6 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Observer(
         builder: (context) {
+          if (widget.loginController.loginCurrentState
+              is LoadedLoginCurrentState) {
+            Modular.to.navigate(
+              HomeRoutes.toHomeScreenInitialRoute,
+            );
+          }
+
           if (widget.loginController.loginCurrentState
               is ErrorLoginCurrentState) {
             Future.delayed(

@@ -9,6 +9,7 @@ import '../../../../../core/platinum/components/platinum_loading.dart';
 import '../../../../../core/platinum/components/platinum_snack_bar.dart';
 import '../../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../../../routes/authentication_routes.dart';
+import '../../../../../routes/home_routes.dart';
 import '../../controllers/signup_controller.dart';
 import '../../controllers/signup_current_state.dart';
 import 'signup_sentences.dart';
@@ -43,19 +44,9 @@ class SignUpScreenState extends State<SignUpScreen> {
           }
 
           if (widget.signUpController.statusPage is LoadedSignUpCurrentState) {
-            Future.delayed(
-              const Duration(seconds: 1),
-            ).then((value) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                PlatinumSnackBar.success(
-                  message: 'Login successfully!',
-                  action: PlatinumSnackBarAction(
-                    label: 'Finish',
-                    onPressed: () {},
-                  ),
-                ),
-              );
-            });
+            Modular.to.navigate(
+              HomeRoutes.toHomeScreenInitialRoute,
+            );
           }
 
           if (widget.signUpController.statusPage is ErrorSignUpCurrentState) {
