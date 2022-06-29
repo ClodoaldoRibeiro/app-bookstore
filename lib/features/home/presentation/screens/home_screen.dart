@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/platinum/spacing/platinum_padding.dart';
+import '../controllers/home_controller.dart';
 import '../widgets/heaading_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final HomeController homeController;
+
+  const HomeScreen({
+    Key? key,
+    required this.homeController,
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
