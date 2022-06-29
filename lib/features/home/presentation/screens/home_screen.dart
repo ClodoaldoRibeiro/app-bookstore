@@ -50,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeaadingWidget(name: 'Clodoaldo'),
+            const HeaadingWidget(
+              name: 'Clodoaldo',
+            ),
             Container(
               height: 300,
               color: Colors.red,

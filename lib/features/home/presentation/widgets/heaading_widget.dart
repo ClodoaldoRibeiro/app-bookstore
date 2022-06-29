@@ -1,3 +1,4 @@
+import 'package:bookstore/features/home/presentation/screens/home_sentences.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/platinum/spacing/platinum_padding.dart';
@@ -33,7 +34,7 @@ class HeaadingWidget extends StatelessWidget {
             height: PlatinumPadding.iv,
           ),
           const Text(
-            'What do you want to read today?',
+            HomeSentences.question,
             style: TextStyle(
               color: Colors.grey,
             ),
