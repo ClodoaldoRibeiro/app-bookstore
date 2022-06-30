@@ -1,8 +1,11 @@
+import 'package:bookstore/features/home/presentation/widgets/categories_widgets.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/platinum/spacing/platinum_padding.dart';
+import '../../../authentication/presentation/controllers/session_controller.dart';
 import '../controllers/home_controller.dart';
 import '../widgets/heaading_widget.dart';
+import 'home_sentences.dart';
 
 class HomeScreen extends StatefulWidget {
   final HomeController homeController;
@@ -17,6 +20,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late SessionController sessionUser;
+
+  @override
+  void initState() {
+    super.initState();
+    sessionUser = widget.homeController.sesseionController;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,15 +45,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           InkWell(
             onTap: () {},
-            child: const Padding(
-              padding: EdgeInsets.symmetric(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
                 horizontal: PlatinumPadding.viii,
                 vertical: PlatinumPadding.iv,
               ),
               child: CircleAvatar(
                 backgroundColor: Colors.transparent,
                 backgroundImage: NetworkImage(
-                    'https://w7.pngwing.com/pngs/550/997/png-transparent-user-icon-foreigners-avatar-child-face-heroes.png'),
+                  sessionUser.loggedUser()
+                      ? sessionUser.getUser()!.urlPhoto
+                      : HomeSentences.defaultImage,
+                ),
               ),
             ),
           ),
@@ -56,9 +70,29 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeaadingWidget(
-              name: 'Clodoaldo',
+            HeaadingWidget(
+              name: sessionUser.loggedUser()
+                  ? firstName(
+                      fullName: sessionUser.getUser()!.name,
+                    )
+                  : HomeSentences.defaultName,
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: PlatinumPadding.xvi,
+              ),
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Search here',
+                  prefix: SizedBox(
+                    width: PlatinumPadding.viii,
+                  ),
+                ),
+                onChanged: (newValue) {},
+              ),
+            ),
+            const CategoriesWidget(),
             Container(
               height: 300,
               color: Colors.red,
@@ -112,5 +146,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  String firstName({
+    required String fullName,
+  }) {
+    final names = fullName.split(' ');
+
+    return names[0];
   }
 }

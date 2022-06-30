@@ -16,6 +16,12 @@ class AppModule extends Module {
       ];
 
   @override
+  List<Module> get imports => [
+        AuthenticationModule(),
+        HomeModule(),
+      ];
+
+  @override
   List<ModularRoute> get routes => [
         ModuleRoute(
           OnboardingRoutes.onboardingModuleRoute,

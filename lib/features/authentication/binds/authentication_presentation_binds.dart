@@ -15,7 +15,6 @@ abstract class AuthenticationPresenterBinds {
       },
       export: true,
     ),
-
     Bind.factory(
       (i) {
         return SignUpController(
