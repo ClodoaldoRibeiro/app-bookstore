@@ -1,4 +1,6 @@
+import 'package:bookstore/features/home/presentation/widgets/bottom_navigation_bar_widget.dart';
 import 'package:bookstore/features/home/presentation/widgets/categories_widgets.dart';
+import 'package:bookstore/features/home/presentation/widgets/filter_applicator_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/platinum/spacing/platinum_padding.dart';
@@ -77,20 +79,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   : HomeSentences.defaultName,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
+            const Padding(
+              padding: EdgeInsets.symmetric(
                 vertical: PlatinumPadding.xvi,
               ),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Search here',
-                  prefix: SizedBox(
-                    width: PlatinumPadding.viii,
-                  ),
-                ),
-                onChanged: (newValue) {},
-              ),
+              child: FilterApplicatorWidget(),
             ),
             const CategoriesWidget(),
             Container(
@@ -112,39 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        iconSize: 28,
-        selectedFontSize: 10,
-        unselectedFontSize: 10,
-        elevation: 1,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_outline,
-            ),
-            label: 'Saved',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings_outlined,
-            ),
-            label: 'Settings',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle_outlined,
-            ),
-            label: 'Profile',
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomNavigationBarWidget(),
     );
   }
 
