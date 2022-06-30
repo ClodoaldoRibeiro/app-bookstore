@@ -153,19 +153,19 @@ mixin _$SignUpController on _SignUpController, Store {
     });
   }
 
-  late final _$statusPageAtom =
-      Atom(name: '_SignUpController.statusPage', context: context);
+  late final _$stateAtom =
+      Atom(name: '_SignUpController.state', context: context);
 
   @override
-  SignUpCurrentState get statusPage {
-    _$statusPageAtom.reportRead();
-    return super.statusPage;
+  SignUpCurrentState get state {
+    _$stateAtom.reportRead();
+    return super.state;
   }
 
   @override
-  set statusPage(SignUpCurrentState value) {
-    _$statusPageAtom.reportWrite(value, super.statusPage, () {
-      super.statusPage = value;
+  set state(SignUpCurrentState value) {
+    _$stateAtom.reportWrite(value, super.state, () {
+      super.state = value;
     });
   }
 
@@ -191,7 +191,7 @@ userName: ${userName},
 email: ${email},
 password: ${password},
 passwordVisible: ${passwordVisible},
-statusPage: ${statusPage},
+state: ${state},
 nameError: ${nameError},
 isValidName: ${isValidName},
 userNameError: ${userNameError},

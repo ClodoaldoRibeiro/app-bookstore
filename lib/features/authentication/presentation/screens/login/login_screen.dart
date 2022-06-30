@@ -35,15 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Observer(
         builder: (context) {
-          if (widget.loginController.loginCurrentState
-              is LoadedLoginCurrentState) {
+          if (widget.loginController.state is LoadedLoginCurrentState) {
             Modular.to.navigate(
               HomeRoutes.toHomeScreenInitialRoute,
             );
           }
 
-          if (widget.loginController.loginCurrentState
-              is ErrorLoginCurrentState) {
+          if (widget.loginController.state is ErrorLoginCurrentState) {
             Future.delayed(
               const Duration(seconds: 1),
             ).then((value) {
@@ -59,8 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
             });
           }
 
-          if (widget.loginController.loginCurrentState
-              is LoadingLoginCurrentState) {
+          if (widget.loginController.state is LoadingLoginCurrentState) {
             return const PlatinumLoading(
               message: 'Please wait...',
             );

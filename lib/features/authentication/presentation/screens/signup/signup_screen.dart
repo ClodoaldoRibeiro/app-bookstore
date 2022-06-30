@@ -37,19 +37,19 @@ class SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       body: Observer(
         builder: (context) {
-          if (widget.signUpController.statusPage is LoadingSignUpCurrentState) {
+          if (widget.signUpController.state is LoadingSignUpCurrentState) {
             return const PlatinumLoading(
               message: 'Registering, please wait...',
             );
           }
 
-          if (widget.signUpController.statusPage is LoadedSignUpCurrentState) {
+          if (widget.signUpController.state is LoadedSignUpCurrentState) {
             Modular.to.navigate(
               HomeRoutes.toHomeScreenInitialRoute,
             );
           }
 
-          if (widget.signUpController.statusPage is ErrorSignUpCurrentState) {
+          if (widget.signUpController.state is ErrorSignUpCurrentState) {
             Future.delayed(
               const Duration(seconds: 1),
             ).then((value) {

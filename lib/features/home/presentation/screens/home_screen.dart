@@ -1,12 +1,14 @@
-import 'package:bookstore/features/home/presentation/widgets/bottom_navigation_bar_widget.dart';
-import 'package:bookstore/features/home/presentation/widgets/categories_widgets.dart';
-import 'package:bookstore/features/home/presentation/widgets/filter_applicator_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../authentication/presentation/controllers/session_controller.dart';
 import '../controllers/home_controller.dart';
+import '../widgets/book_suggestion_list_widget.dart';
+import '../widgets/bottom_navigation_bar_widget.dart';
+import '../widgets/categories_widgets.dart';
+import '../widgets/filter_applicator_widget.dart';
 import '../widgets/heaading_widget.dart';
+import '../widgets/new_arrivals_list_widget.dart';
 import 'home_sentences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -79,28 +81,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   : HomeSentences.defaultName,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: PlatinumPadding.xvi,
-              ),
-              child: FilterApplicatorWidget(),
+            const SizedBox(
+              height: PlatinumPadding.xvi,
+            ),
+            const FilterApplicatorWidget(),
+            const SizedBox(
+              height: PlatinumPadding.xxxii,
             ),
             const CategoriesWidget(),
-            Container(
-              height: 300,
-              color: Colors.red,
+            const SizedBox(
+              height: PlatinumPadding.xvi,
             ),
-            Container(
-              height: 300,
-              color: Colors.yellow,
+            const BookSuggestionListWidget(),
+            const SizedBox(
+              height: PlatinumPadding.xvi,
             ),
-            Container(
-              height: 300,
-              color: Colors.cyan,
-            ),
-            Container(
-              height: 300,
-              color: Colors.green,
+            const NewArrivalsListWidget(),
+            const SizedBox(
+              height: PlatinumPadding.xvi,
             ),
           ],
         ),

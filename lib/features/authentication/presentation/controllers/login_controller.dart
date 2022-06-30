@@ -28,7 +28,7 @@ abstract class _LoginController with Store {
   bool passwordVisible = false;
 
   @observable
-  LoginCurrentState loginCurrentState = InitialLoginCurrentState();
+  LoginCurrentState state = InitialLoginCurrentState();
 
   @computed
   String? get userNameError {
@@ -79,7 +79,7 @@ abstract class _LoginController with Store {
   }
 
   void authenticate() async {
-    loginCurrentState = loginCurrentState.loadingLoginCurrentState();
+    state = state.loadingLoginCurrentState();
 
     final loginUserUsecaseCallback = await loginUserUsecase.call(
       userName: userName,
@@ -88,14 +88,14 @@ abstract class _LoginController with Store {
 
     loginUserUsecaseCallback.fold(
       (loginFailure) {
-        loginCurrentState = loginCurrentState.errorLoginCurrentState();
+        state = state.errorLoginCurrentState();
       },
       (userSession) {
         sesseionController.configureLoggedUser(
           userEntity: userSession,
         );
 
-        loginCurrentState = loginCurrentState.loadedLoginCurrentState();
+        state = state.loadedLoginCurrentState();
       },
     );
   }
