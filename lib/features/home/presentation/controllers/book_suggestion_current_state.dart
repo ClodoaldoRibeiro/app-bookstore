@@ -1,4 +1,4 @@
-import 'package:bookstore/features/book/domain/entities/book_entity.dart';
+import '../../../book/domain/entities/book_entity.dart';
 
 abstract class BookSuggestionState {
   InitialBookSuggestionCurrentState initialBookSuggestionCurrentState() {
@@ -14,9 +14,11 @@ abstract class BookSuggestionState {
   }
 
   LoadedBookSuggestionCurrentState loadedBookSuggestionCurrentState({
-    required BookEntity bookEntity,
+    required List<BookEntity> bookEntityList,
   }) {
-    return LoadedBookSuggestionCurrentState(bookEntity: bookEntity);
+    return LoadedBookSuggestionCurrentState(
+      bookEntityList: bookEntityList,
+    );
   }
 }
 
@@ -27,9 +29,9 @@ class LoadingBookSuggestionCurrentState extends BookSuggestionState {}
 class ErrorBookSuggestionCurrentState extends BookSuggestionState {}
 
 class LoadedBookSuggestionCurrentState extends BookSuggestionState {
-  final BookEntity bookEntity;
+  final List<BookEntity> bookEntityList;
 
   LoadedBookSuggestionCurrentState({
-    required this.bookEntity,
+    required this.bookEntityList,
   });
 }

@@ -1,6 +1,6 @@
-import '../../../book/domain/entities/book_entity.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../domain/usecases/get_book_suggestion_usecase.dart';
 import 'book_suggestion_current_state.dart';
 
 part 'book_suggestion_controller.g.dart';
@@ -10,22 +10,29 @@ class BookSuggestionController = _BookSuggestionController
     with _$BookSuggestionController;
 
 abstract class _BookSuggestionController with Store {
+  final GetBookSuggestionUsecase getBookSuggestionUsecase;
+
+  _BookSuggestionController({
+    required this.getBookSuggestionUsecase,
+  });
+
   @observable
   BookSuggestionState state = InitialBookSuggestionCurrentState();
 
-  void bookSuggestion() {
+  void bookSuggestion() async {
     state = state.loadingBookSuggestionCurrentState();
 
-    state = state.loadedBookSuggestionCurrentState(
-      bookEntity: const BookEntity(
-        urlCover: 'urlCover',
-        title: 'title',
-        author: 'author',
-        evaluation: 0,
-        aboutAuthor: 'aboutAuthor',
-        description: 'description',
-        price: 1.25,
-      ),
+    final getBookSuggestionCallback = await getBookSuggestionUsecase.call();
+
+    getBookSuggestionCallback.fold(
+      (bookSuggestionFailure) {
+        state = state.errorBookSuggestionCurrentState();
+      },
+      (bookEntityList) {
+        state = state.loadedBookSuggestionCurrentState(
+          bookEntityList: bookEntityList,
+        );
+      },
     );
   }
 }

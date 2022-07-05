@@ -92,7 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),
-            const BookSuggestionListWidget(),
+            BookSuggestionListWidget(
+              bookSuggestionController:
+                  widget.homeController.bookSuggestionController,
+            ),
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),

@@ -8,7 +8,9 @@ abstract class HomePresenterBinds {
     // Controllers
     Bind.factory(
       (i) {
-        return BookSuggestionController();
+        return BookSuggestionController(
+          getBookSuggestionUsecase: i.get(),
+        );
       },
       export: true,
     ),
