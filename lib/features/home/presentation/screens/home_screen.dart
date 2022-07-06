@@ -68,27 +68,39 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: const Drawer(),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: PlatinumPadding.xx,
-        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeaadingWidget(
-              name: sessionUser.loggedUser()
-                  ? firstName(
-                      fullName: sessionUser.getUser()!.name,
-                    )
-                  : HomeSentences.defaultName,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: PlatinumPadding.xvi,
+              ),
+              child: HeaadingWidget(
+                name: sessionUser.loggedUser()
+                    ? firstName(
+                        fullName: sessionUser.getUser()!.name,
+                      )
+                    : HomeSentences.defaultName,
+              ),
             ),
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),
-            const FilterApplicatorWidget(),
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: PlatinumPadding.xvi,
+              ),
+              child: FilterApplicatorWidget(),
+            ),
             const SizedBox(
               height: PlatinumPadding.xxxii,
             ),
-            const CategoriesWidget(),
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: PlatinumPadding.xvi,
+              ),
+              child: CategoriesWidget(),
+            ),
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),

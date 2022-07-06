@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../core/services/api/mocks/login_user_service_mock.dart';
+import '../../../core/services/api/mocks/get_book_suggestion_service_mock.dart';
 import '../data/datasources/get_book_suggestion_datasource.dart';
 import '../external/datasources/get_book_suggestion_datasource_impl.dart';
 import '../external/mappers/book_model_mapper.dart';
@@ -19,7 +19,7 @@ abstract class HomeExternalBinds {
     Bind.singleton<GetBookSuggestionDatasource>(
       (i) {
         return GetBookSuggestionDatasourceImpl(
-          apiService: LoginUserServiceMock(),
+          apiService: GetBookSuggestionServiceMock(),
           bookModelMapper: i.get(),
         );
       },
