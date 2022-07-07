@@ -84,6 +84,30 @@ class GetBookSuggestionServiceMock implements ApiService {
           "description":
               "Com mais de dois milhões de exemplares vendidos no mundo todo, O homem mais rico da Babilônia é um clássico sobre como multiplicar riqueza e solucionar problemas financeiros. Baseando-se nos segredos de sucesso dos antigos babilônicos ― os habitantes da cidade mais rica e próspera de seu tempo ―, George S. Clason mostra soluções ao mesmo tempo sábias e muito atuais para evitar a falta de dinheiro, como não desperdiçar recursos durante tempos de opulência, buscar conhecimento e informação em vez de apenas lucro, assegurar uma renda para o futuro, manter a pontualidade no pagamento de dívidas e, sobretudo, cultivar as próprias aptidões, tornando-se cada vez mais habilidoso e consciente.",
           "price": 21.90
+        },
+        {
+          "urlCover":
+              "https://images-na.ssl-images-amazon.com/images/I/51R8IllY1SL._SX331_BO1,204,203,200_.jpg",
+          "title": "O Encanto dos Corvos Capa dura – 7 dezembro 2021",
+          "author": "Margaret Rogerson",
+          "evaluation": 4,
+          "aboutAuthor":
+              "Com apenas algumas pinceladas, Isobel cria retratos deslumbrantes para clientes perigosos: o povo das fadas. Esses seres imortais não são capazes de criar ― mesmo as coisas mais simples como assar pães ou escrever cartas os reduziria a pó.",
+          "description":
+              "Acompanhe Isobel e Rook em sua jornada fascinante em um lugar onde a beleza esconde um mundo perverso e o preço da sobrevivência pode ser mais assustador do que a morte.",
+          "price": 57.95
+        },
+        {
+          "urlCover":
+              "https://images-na.ssl-images-amazon.com/images/I/41i4-cmP8kL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+          "title": "Messi: O Gênio Completo Capa comum – 27 março 2022",
+          "author": "Ariel Senosiain",
+          "evaluation": 4,
+          "aboutAuthor":
+              "Lionel Andrés Messi Cuccittini é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde é capitão",
+          "description":
+              "Agora completo, o gênio do futebol é retratado neste livro pela visão daqueles que mais estiveram perto e sempre souberam do que ele era capaz. O experiente jornalista Ariel Senosiain fez 68 entrevistas e conseguiu o que ninguém conseguiu: falar com o próprio pai do Messi, o treinador Alejandro Sabella e o ex-presidente da FIFA Sepp Blatter. A recriação vívida das peças-chave são um presente para os amantes do futebol e a análise afiada conquista todos os leitores. Uma leitura cativante. Uma história épica.",
+          "price": 45.40
         }
       ]
     };
