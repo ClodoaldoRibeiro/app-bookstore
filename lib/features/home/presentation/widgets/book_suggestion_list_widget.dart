@@ -3,11 +3,11 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../core/platinum/components/platinum_loading.dart';
 import '../../../../core/platinum/spacing/platinum_padding.dart';
-import '../../../../core/platinum/spacing/platinum_size.dart';
 import '../controllers/book_suggestion_controller.dart';
 import '../controllers/book_suggestion_current_state.dart';
 import '../screens/home_sentences.dart';
 import 'card_book_widget.dart';
+import 'retry_button_widget.dart';
 
 class BookSuggestionListWidget extends StatefulWidget {
   final BookSuggestionController bookSuggestionController;
@@ -43,24 +43,8 @@ class _BookSuggestionListWidgetState extends State<BookSuggestionListWidget> {
 
         if (widget.bookSuggestionController.state
             is ErrorBookSuggestionCurrentState) {
-          return SizedBox(
-            child: Row(
-              children: [
-                TextButton.icon(
-                  onPressed: widget.bookSuggestionController.bookSuggestion,
-                  icon: const Icon(
-                    Icons.error_outlined,
-                    color: Colors.redAccent,
-                  ),
-                  label: const Text(
-                    HomeSentences.errorGettingSuggestions,
-                    style: TextStyle(
-                      fontSize: PlatinumSize.body,
-                    ),
-                  ),
-                )
-              ],
-            ),
+          return RetryButtonWidget(
+            onPressed: widget.bookSuggestionController.bookSuggestion,
           );
         }
 

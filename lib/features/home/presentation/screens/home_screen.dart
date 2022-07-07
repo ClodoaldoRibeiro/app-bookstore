@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../authentication/presentation/controllers/session_controller.dart';
 import '../controllers/home_controller.dart';
+import '../widgets/book_new_arrivals_list_widget.dart';
 import '../widgets/book_suggestion_list_widget.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
 import '../widgets/categories_widgets.dart';
 import '../widgets/filter_applicator_widget.dart';
 import '../widgets/heaading_widget.dart';
-import '../widgets/new_arrivals_list_widget.dart';
 import 'home_sentences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -111,7 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),
-            const NewArrivalsListWidget(),
+            BookNewArrivalsListWidget(
+              bookNewArrivalsController:
+                  widget.homeController.bookNewArrivalsController,
+            ),
             const SizedBox(
               height: PlatinumPadding.xvi,
             ),

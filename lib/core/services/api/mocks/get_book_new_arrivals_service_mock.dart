@@ -34,7 +34,7 @@ class GetBookNewArrivalsServiceMock implements ApiService {
 
     return Future.delayed(
       const Duration(
-        seconds: 5,
+        seconds: 7,
       ),
     ).then(
       (value) {
@@ -51,64 +51,54 @@ class GetBookNewArrivalsServiceMock implements ApiService {
       "results": [
         {
           "urlCover":
-              "https://images-na.ssl-images-amazon.com/images/I/51+GR0xBMWL._SX331_BO1,204,203,200_.jpg",
-          "title": "Os segredos da mente milionária",
-          "author": "T. Harv Eker",
+              "https://images-na.ssl-images-amazon.com/images/I/51bVhqv1hcL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+          "title":
+              "De mãos dadas: Um palhaço e um psicólogo conversam sobre a coragem de viver o luto e as belezas que nascem da despedida",
+          "author": "Claudio Thebas",
           "evaluation": 5,
           "aboutAuthor":
-              "Aplicando os princípios que ensina, T. Harv Eker conseguiu superar uma penosa fase de altos e baixos em sua vida e se tornar milionário em apenas dois anos e meio. Hoje ele preside a Peak Potentials Training, uma das mais bem-sucedidas empresas de treinamento pessoal dos Estados Unidos e no Canadá, responsável pela organização de seminários e cursos sobre os princípios da mente milionária que atraem participantes de todo o mundo.",
+              "Cláudio Thebas é palhaço, escritor e educador pós-graduado em Pedagogia da Cooperação (Projeto Cooperação). É fundador do Laboratório de Escuta e Convivência (LEC), consultoria especializada em promover engajamento, diálogo e integração de grupos e equipes. ",
           "description":
-              "Conforme o próprio autor, T. Harv Eker começa seu livro 'as histórias apresentadas no livro não são certas ou erradas, verdadeiras ou falsas'. Na obra estão descritos resultados de sua carreira e conquistas de milhares de alunos dele. Ele deixa claro para aplicar o que for útil e desprezar o que não for. Vale ressaltar que em cursos de inteligência financeira, muitos dos princípios aplicados advém do que consta neste livro - mude sua mentalidade primeiro; daí você estará apto a adquirir novos hábitos através de disciplinas e crenças de evolução sobre não apenas dinheiro, mas também, unir e evoluir os mundos físico, mental, emocional e espiritual, pois devem andar juntos!",
-          "price": 34.90
+              "Trata-se antes de tudo de uma obra sobre o amor, a esperança e sobre a urgência de vivermos plenamente os encontros. O luto não precisa ser vivido de forma solitária. A cada página o leitor se sentirá acolhido pelos autores e terá a oportunidade de participar da jornada de dois amigos escritores que se encontraram literariamente durante o primeiro ano de uma grande ausência.",
+          "price": 37.50
         },
         {
           "urlCover":
-              "https://images-na.ssl-images-amazon.com/images/I/51Di3Ke9otL._SX350_BO1,204,203,200_.jpg",
-          "title": "Estruturas de dados fundamentais: Conceitos e Aplicações",
-          "author": "Silvio do Lago Pereira",
+              "https://images-na.ssl-images-amazon.com/images/I/512niS66poL._SX552_BO1,204,203,200_.jpg",
+          "title": "Medicina Legal e Noções de Criminalística - 11ª Ed - 2022",
+          "author": "Neusa Bittar",
           "evaluation": 5,
           "aboutAuthor":
-              "Silvio do Lago Pereira possui graduação em Tecnologia de Processamento de Dados pela Universidade Estadual Paulista (1990), especialização em Automação Industrial pela Escola de Engenharia Industrial de São José dos Campos (1993), mestrado em Ciência da Computação pela Universidade de São Paulo (2002) e doutorado em Ciência da Computação pela Universidade de São Paulo (2007), cuja tese obteve a primeira colocação no Concurso de Teses e Dissertações em Inteligência Artificial (2008), promovido pela Sociedade Brasileira de Computação. Tem experiência na área de Ciência da Computação, com ênfase em Inteligência Artificial, atuando principalmente em planejamento automatizado, métodos formais e verificação de modelos, aprendizado indutivo e programação em lógica. Atualmente é professor (PES-III-p) do Departamento de Tecnologia da Informação da Faculdade de Tecnologia de São Paulo (FATEC-SP), do Centro Estadual de Educação Tecnológica 'Paula Souza'.",
+              "Médica, advogada, professora universitária e escritora. Mestre em Medicina. Professora de Criminologia da Universidade Metropolitana de Santos (UNIMES) Preceptora da Liga de Medicina Legal da Faculdade de Medicina da UNIMES.",
           "description":
-              "Com uma linguagem simples, o livro apresenta de forma didática as principais estruturas de dados usadas na solução de problemas por computador. Cada conceito introduzido é imediatamente seguido por exemplos de aplicação e por uma série de exercícios que ajudam a absorvê-los mais facilmente. A obra foi elaborada para disciplinas de Estruturas de Dados, Programação e Desenvolvimento de Algoritmos, sendo indicada tanto para estudantes quanto para profissionais de informática. Na 12ª edição, o livro foi totalmente reestruturado e os seguintes tópicos adicionados: implementação de retrocesso (backtracking) usando pilha, filas de prioridades, minuciosa discussão sobre recursividade e vários exemplos de uso, análise de complexidade assintótica e notação O, provas por indução, algoritmos de ordenação e busca em vetores, e aplicação de listas generalizadas na implementação da linguagem LISP.",
-          "price": 53.20
+              "Sobre a obra Medicina Legal e Noções de Criminalística - 11ª Ed - 2022 'A obra tem conteúdo que inclui definições, conceitos, ensinamentos e explicações de ordem prática, com o respectivo estudo e exame, tudo apresentado de modo acessível e adequado aos que querem estudar ou pesquisar assuntos que, na Medicina Legal, vão até à moderna Toxicologia Forense, passando pelo relevante prova pericial e pelos documentos utilizados no campo médico legal, e vão desde a Criminalística até à Sexologia Forense, sem abandonar a importante Psicopatologia Forense.",
+          "price": 114.90
         },
         {
           "urlCover":
-              "https://images-na.ssl-images-amazon.com/images/I/51cB4wSNxQL._SX333_BO1,204,203,200_.jpg",
-          "title": "O homem mais rico da Babilônia",
-          "author": "George S Clason",
+              "https://images-na.ssl-images-amazon.com/images/I/51D932tuqAL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
+          "title":
+              "Corpo fala: A linguagem silenciosa da comunicação não verbal",
+          "author": " Pierre Weil",
           "evaluation": 5,
           "aboutAuthor":
-              "George Samuel Clason nasceu em 7 de novembro de 1874, em Luisiana, Missouri. O escritor frequentou a Universidade de Nebraska e foi fundador de duas empresas, a Clason Map Company of Denver e a Colorado and the Clason Publishing Company. Com a última, ele publicou o primeiro atlas rodoviário dos Estados Unidos e do Canadá. Clason serviu ao Exército Americano durante a Guerra Hispano-Americana e morreu em 1957 na cidade de Napa, na Califórnia.",
+              "Pierre Weil, doutor em Psicologia pela Universidade de Paris, é um nome consagrado na psicologia contemporânea, com mais de trinta obras publicadas em diversos idiomas. Professor emérito da Universidade Federal de Minas Gerais. A Unesco publicou o seu livro A arte de viver em paz, que é uma educação emergente, holística e centrada na paz. Foi um eminente mentor do movimento holístico no Brasil e na Europa.",
           "description":
-              "Com mais de dois milhões de exemplares vendidos no mundo todo, O homem mais rico da Babilônia é um clássico sobre como multiplicar riqueza e solucionar problemas financeiros. Baseando-se nos segredos de sucesso dos antigos babilônicos ― os habitantes da cidade mais rica e próspera de seu tempo ―, George S. Clason mostra soluções ao mesmo tempo sábias e muito atuais para evitar a falta de dinheiro, como não desperdiçar recursos durante tempos de opulência, buscar conhecimento e informação em vez de apenas lucro, assegurar uma renda para o futuro, manter a pontualidade no pagamento de dívidas e, sobretudo, cultivar as próprias aptidões, tornando-se cada vez mais habilidoso e consciente.",
-          "price": 21.90
+              "O livro tenta desvendar a comunicação não-verbal do corpo humano, primeiramente analisando os princípios subterrâneos que regem e conduzem o corpo. A partir desses princípios aparecem as expressões, gestos e atos corporais que, de modos característicos estilizados ou inovadores, expressam sentimentos, concepções, ou posicionamentos internos. Acompanham 350 ilustrações.",
+          "price": 30.16
         },
         {
           "urlCover":
-              "https://images-na.ssl-images-amazon.com/images/I/51R8IllY1SL._SX331_BO1,204,203,200_.jpg",
-          "title": "O Encanto dos Corvos Capa dura – 7 dezembro 2021",
-          "author": "Margaret Rogerson",
-          "evaluation": 4,
+              "https://images-na.ssl-images-amazon.com/images/I/41CKWlj01ML._SX339_BO1,204,203,200_.jpg",
+          "title": "Manual de persuasão do FBI Capa comum – 31 janeiro 2020",
+          "author": "Jack Shafer ",
+          "evaluation": 5,
           "aboutAuthor":
-              "Com apenas algumas pinceladas, Isobel cria retratos deslumbrantes para clientes perigosos: o povo das fadas. Esses seres imortais não são capazes de criar ― mesmo as coisas mais simples como assar pães ou escrever cartas os reduziria a pó.",
+              "Pierre Weil, doutor em Psicologia pela Universidade de Paris, é um nome consagrado na psicologia contemporânea, com mais de trinta obras publicadas em diversos idiomas. Professor emérito da Universidade Federal de Minas Gerais. A Unesco publicou o seu livro A arte de viver em paz, que é uma educação emergente, holística e centrada na paz. Foi um eminente mentor do movimento holístico no Brasil e na Europa.",
           "description":
-              "Acompanhe Isobel e Rook em sua jornada fascinante em um lugar onde a beleza esconde um mundo perverso e o preço da sobrevivência pode ser mais assustador do que a morte.",
-          "price": 57.95
+              "Ex-agente do FBI ensina como influenciar, atrair e conquistar pessoas. Como um agente especial para o Programa de Análise Comportamental da Divisão de Segurança Nacional do FBI, Dr. Jack Schafer desenvolveu estratégias dinâmicas e inovadoras para entrevistar terroristas e detectar mentiras.  Agora, Dr. Schafer evoluiu suas táticas e nos ensina como aplicá-las no cotidiano para obter sucesso nas relações interpessoais.",
+          "price": 25.89
         },
-        {
-          "urlCover":
-              "https://images-na.ssl-images-amazon.com/images/I/41i4-cmP8kL._SY344_BO1,204,203,200_QL70_ML2_.jpg",
-          "title": "Messi: O Gênio Completo Capa comum – 27 março 2022",
-          "author": "Ariel Senosiain",
-          "evaluation": 4,
-          "aboutAuthor":
-              "Lionel Andrés Messi Cuccittini é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde é capitão",
-          "description":
-              "Agora completo, o gênio do futebol é retratado neste livro pela visão daqueles que mais estiveram perto e sempre souberam do que ele era capaz. O experiente jornalista Ariel Senosiain fez 68 entrevistas e conseguiu o que ninguém conseguiu: falar com o próprio pai do Messi, o treinador Alejandro Sabella e o ex-presidente da FIFA Sepp Blatter. A recriação vívida das peças-chave são um presente para os amantes do futebol e a análise afiada conquista todos os leitores. Uma leitura cativante. Uma história épica.",
-          "price": 45.40
-        }
       ]
     };
   }

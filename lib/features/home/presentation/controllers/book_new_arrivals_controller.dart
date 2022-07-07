@@ -10,11 +10,11 @@ class BookNewArrivalsController = _BookNewArrivalsController
     with _$BookNewArrivalsController;
 
 abstract class _BookNewArrivalsController with Store {
-  final GetBookNewArrivalsUsecase getBookNewArrivalsUsecase;
+  final GetBookNewArrivalsUsecase _getBookNewArrivalsUsecase;
 
   _BookNewArrivalsController({
-    required this.getBookNewArrivalsUsecase,
-  });
+    required GetBookNewArrivalsUsecase getBookNewArrivalsUsecase,
+  }) : _getBookNewArrivalsUsecase = getBookNewArrivalsUsecase;
 
   @observable
   BookNewArrivalsCurrentState state = InitialBookNewArrivalsCurrentState();
@@ -22,7 +22,7 @@ abstract class _BookNewArrivalsController with Store {
   void bookNewArrivals() async {
     state = state.loadingBookNewArrivalsCurrentState();
 
-    final getBookNewArrivalsCallback = await getBookNewArrivalsUsecase.call();
+    final getBookNewArrivalsCallback = await _getBookNewArrivalsUsecase.call();
 
     getBookNewArrivalsCallback.fold(
       (bookSuggestionFailure) {
