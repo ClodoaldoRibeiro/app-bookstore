@@ -1,6 +1,9 @@
-import 'package:bookstore/features/home/domain/usecases/get_book_suggestion_usecase.dart';
-import 'package:bookstore/features/home/domain/usecases/get_book_suggestion_usecase_impl.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../domain/usecases/get_book_new_arrivals_usecase.dart';
+import '../domain/usecases/get_book_new_arrivals_usecase_impl.dart';
+import '../domain/usecases/get_book_suggestion_usecase.dart';
+import '../domain/usecases/get_book_suggestion_usecase_impl.dart';
 
 abstract class HomeDomainBinds {
   static List<Bind<Object>> binds = [
@@ -9,6 +12,15 @@ abstract class HomeDomainBinds {
       (i) {
         return GetBookSuggestionUsecaseImpl(
           getBookSuggestionRepository: i.get(),
+        );
+      },
+      export: true,
+    ),
+
+    Bind.singleton<GetBookNewArrivalsUsecase>(
+      (i) {
+        return GetBookNewArrivalsUsecaseImpl(
+          getBookNewArrivalsRepository: i.get(),
         );
       },
       export: true,

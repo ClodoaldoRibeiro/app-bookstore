@@ -1,7 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../core/services/api/mocks/get_book_new_arrivals_service_mock.dart';
 import '../../../core/services/api/mocks/get_book_suggestion_service_mock.dart';
+import '../data/datasources/get_book_new_arrivals_datasource.dart';
 import '../data/datasources/get_book_suggestion_datasource.dart';
+import '../external/datasources/get_book_new_arrivals_datasource_impl.dart';
 import '../external/datasources/get_book_suggestion_datasource_impl.dart';
 import '../external/mappers/book_model_mapper.dart';
 
@@ -20,6 +23,15 @@ abstract class HomeExternalBinds {
       (i) {
         return GetBookSuggestionDatasourceImpl(
           apiService: GetBookSuggestionServiceMock(),
+          bookModelMapper: i.get(),
+        );
+      },
+      export: true,
+    ),
+    Bind.singleton<GetBookNewArrivalsDatasource>(
+      (i) {
+        return GetBookNewArrivalsDatasourceImpl(
+          apiService: GetBookNewArrivalsServiceMock(),
           bookModelMapper: i.get(),
         );
       },
