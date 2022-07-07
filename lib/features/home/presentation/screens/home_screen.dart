@@ -8,7 +8,7 @@ import '../widgets/book_suggestion_list_widget.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
 import '../widgets/categories_widgets.dart';
 import '../widgets/filter_applicator_widget.dart';
-import '../widgets/heaading_widget.dart';
+import '../widgets/heading_widget.dart';
 import 'home_sentences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(
                 horizontal: PlatinumPadding.xvi,
               ),
-              child: HeaadingWidget(
+              child: headingWidget(
                 name: sessionUser.loggedUser()
                     ? firstName(
                         fullName: sessionUser.getUser()!.name,
