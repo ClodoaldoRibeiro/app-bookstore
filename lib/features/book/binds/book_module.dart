@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../routes/routes.dart';
-import '../presentation/screens/book_details_screen.dart';
+import '../presentation/screens/book_details/book_details_screen.dart';
 import 'book_presentation_binds.dart';
 
 class BookModule extends Module {
