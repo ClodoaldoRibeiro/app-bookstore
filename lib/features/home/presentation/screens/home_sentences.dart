@@ -6,4 +6,5 @@ abstract class HomeSentences {
   static const String defaultName = 'welcome';
   static const String loadingData = 'Carregando dados..';
   static const String errorGettingSuggestions = 'Obter sugestões de livros';
+  static const String newArrivals = 'New Arrivals';
 }

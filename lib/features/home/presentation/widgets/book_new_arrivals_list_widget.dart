@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/platinum/components/platinum_loading.dart';
 import '../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../../core/platinum/spacing/platinum_size.dart';
+import '../../../../routes/routes.dart';
 import '../controllers/book_new_arrivals_controller.dart';
 import '../controllers/book_new_arrivals_current_state.dart';
 import '../screens/home_sentences.dart';
@@ -40,7 +42,7 @@ class _BookNewArrivalsListWidgetState extends State<BookNewArrivalsListWidget> {
         const Padding(
           padding: EdgeInsets.all(PlatinumPadding.xvi),
           child: Text(
-            'New Arrivals',
+            HomeSentences.newArrivals,
             style: TextStyle(
               fontSize: PlatinumSize.h2,
               fontWeight: FontWeight.bold,
@@ -79,7 +81,10 @@ class _BookNewArrivalsListWidgetState extends State<BookNewArrivalsListWidget> {
                   itemBuilder: (context, index) {
                     return CardBookWidget(
                       bookEntity: bookEntityList[index],
-                      onTap: () {},
+                      onTap: () => Modular.to.pushNamed(
+                        BookRoutes.toBookScreenInitialRoute,
+                        arguments: bookEntityList[index],
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) {
