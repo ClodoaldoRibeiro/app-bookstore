@@ -2,6 +2,7 @@
 //
 
 abstract class PlatinumPadding {
+  static const double ii = 2;
   static const double iv = 4;
   static const double viii = 8;
   static const double xii = 12;

@@ -76,11 +76,12 @@ class LoginUserServiceMock implements ApiService {
 
   Map<String, dynamic> _successResponse() {
     return {
-      'name': 'Jose da Silca',
+      'name': 'José da Silca',
       'userName': 'jose.dasilva',
       'email': 'jose_silva@gmail.com',
       'password': '123456',
-      'urlPhoto': 'https://cdn.icon-icons.com/icons2/582/PNG/512/boy_icon-icons.com_55048.png',
+      'urlPhoto':
+          'https://cdn.icon-icons.com/icons2/582/PNG/512/boy_icon-icons.com_55048.png',
     };
   }
 

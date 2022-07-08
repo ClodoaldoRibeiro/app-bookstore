@@ -1,9 +1,9 @@
-import 'package:bookstore/features/authentication/presentation/controllers/signup_current_state.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../core/extensions/email_validato_extension.dart';
 import '../../domain/usecases/register_user_usecase.dart';
 import 'session_controller.dart';
-import 'package:bookstore/core/extensions/email_validato_extension.dart';
+import 'signup_current_state.dart';
 
 part 'signup_controller.g.dart';
 
@@ -35,7 +35,7 @@ abstract class _SignUpController with Store {
   bool passwordVisible = false;
 
   @observable
-  SignUpCurrentState statusPage = InitialSignUpCurrentState();
+  SignUpCurrentState state = InitialSignUpCurrentState();
 
   @computed
   String? get nameError {
@@ -126,7 +126,7 @@ abstract class _SignUpController with Store {
   }
 
   void register() async {
-    statusPage = statusPage.loadingSignUpCurrentState();
+    state = state.loadingSignUpCurrentState();
 
     final registerUserUsecaseCallback = await registerUserUsecase.call(
       name: name,
@@ -137,14 +137,14 @@ abstract class _SignUpController with Store {
 
     registerUserUsecaseCallback.fold(
       (loginFailure) {
-        statusPage = statusPage.errorSignUpCurrentState();
+        state = state.errorSignUpCurrentState();
       },
       (userSession) {
         sesseionController.configureLoggedUser(
           userEntity: userSession,
         );
 
-        statusPage = statusPage.loadedSignUpCurrentState();
+        state = state.loadedSignUpCurrentState();
       },
     );
   }

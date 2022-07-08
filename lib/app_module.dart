@@ -2,7 +2,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'features/authentication/binds/authentication_module.dart';
 import 'features/authentication/presentation/controllers/session_controller.dart';
+import 'features/home/binds/home_module.dart';
 import 'features/onboarding/binds/onboarding_module.dart';
+import 'routes/home_routes.dart';
 import 'routes/routes.dart';
 
 class AppModule extends Module {
@@ -14,6 +16,12 @@ class AppModule extends Module {
       ];
 
   @override
+  List<Module> get imports => [
+        AuthenticationModule(),
+        HomeModule(),
+      ];
+
+  @override
   List<ModularRoute> get routes => [
         ModuleRoute(
           OnboardingRoutes.onboardingModuleRoute,
@@ -22,6 +30,10 @@ class AppModule extends Module {
         ModuleRoute(
           AuthenticationRoutes.authenticationModuleRoute,
           module: AuthenticationModule(),
+        ),
+        ModuleRoute(
+          HomeRoutes.homeModuleRoute,
+          module: HomeModule(),
         ),
       ];
 }
