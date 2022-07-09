@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(
                 horizontal: PlatinumPadding.xvi,
               ),
-              child: headingWidget(
+              child: HeadingWidget(
                 name: sessionUser.loggedUser()
                     ? firstName(
                         fullName: sessionUser.getUser()!.name,

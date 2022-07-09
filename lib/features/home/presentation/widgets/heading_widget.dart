@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import '../../../../core/platinum/spacing/platinum_padding.dart';
 import '../../../../core/platinum/spacing/platinum_size.dart';
 
-class headingWidget extends StatelessWidget {
+class HeadingWidget extends StatelessWidget {
   final String name;
 
-  const headingWidget({
+  const HeadingWidget({
     Key? key,
     required this.name,
   }) : super(key: key);

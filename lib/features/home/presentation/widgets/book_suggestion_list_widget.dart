@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../core/platinum/components/platinum_loading.dart';
 import '../../../../core/platinum/spacing/platinum_padding.dart';
+import '../../../../routes/routes.dart';
 import '../controllers/book_suggestion_controller.dart';
 import '../controllers/book_suggestion_current_state.dart';
 import '../screens/home_sentences.dart';
@@ -64,7 +66,10 @@ class _BookSuggestionListWidgetState extends State<BookSuggestionListWidget> {
               itemBuilder: (context, index) {
                 return CardBookWidget(
                   bookEntity: bookEntityList[index],
-                  onTap: () {},
+                  onTap: () => Modular.to.pushNamed(
+                    BookRoutes.toBookScreenInitialRoute,
+                    arguments: bookEntityList[index],
+                  ),
                 );
               },
               separatorBuilder: (context, index) {

@@ -12,6 +12,7 @@ Here we write upgrading notes for brands. It's a team effort to make them as
 straightforward as possible.
  
 ### Added
+- [BOOK-5] - Create book details
 - [BOOK-4] - Create home screen.
 - [BOOK-3] - Create user registration functionality.
 - [BOOK-2] - Create Login functionality.
