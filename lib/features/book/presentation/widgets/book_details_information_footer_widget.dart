@@ -49,9 +49,7 @@ class BookDetailsInformationFooterWidget extends StatelessWidget {
           height: PlatinumPadding.iv,
         ),
         Text(
-          price.obterReal(
-            value: price,
-          ),
+          price.obterReal(),
           style: const TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.normal,
