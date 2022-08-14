@@ -1,13 +1,12 @@
 # App Bookstore
-
 [![GitHub stars](https://img.shields.io/github/stars/ClodoaldoRibeiro/app-bookstore?style=social)](https://github.com/ashishrawat2911/flutter_commerce) ![GitHub forks](https://img.shields.io/github/forks/ClodoaldoRibeiro/app-bookstore?style=social) 
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/ClodoaldoRibeiro/app-bookstore) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ClodoaldoRibeiro/app-bookstore) ![GitHub last commit](https://img.shields.io/github/last-commit/ClodoaldoRibeiro/app-bookstore)  ![GitHub issues](https://img.shields.io/github/issues-raw/ClodoaldoRibeiro/app-bookstore) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ClodoaldoRibeiro/app-bookstore) 
 
-## Flutter UI
-![Flutter UI](https://github.com/ClodoaldoRibeiro/app-bookstore/blob/develop/assets/images/BookstoreArte.png)
-
 ## Sobre
 Bookstore é parte de uma implantação de Loja Virtual para livros de forma online.
+
+## Flutter UI
+![Flutter UI](https://github.com/ClodoaldoRibeiro/app-bookstore/blob/develop/assets/images/BookstoreArte.png)
 
 ## Conceitos utilizados
 - [Clean Architecture](https://medium.com/luizalabs/descomplicando-a-clean-architecture-cf4dfc4a1ac6) : Utilizei o conceito de arquitetura limpa para esse projeto, baseado nas ideias de Uncle Bob. Basicamente, cada modulo terá 4 camadas para serem desenvolvidos.
