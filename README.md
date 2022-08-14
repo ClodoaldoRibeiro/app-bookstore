@@ -7,25 +7,16 @@
 ![Flutter UI](https://github.com/ClodoaldoRibeiro/app-bookstore/blob/develop/assets/images/BookstoreArte.png)
 
 ## Sobre
-Bookstore é um app de uma Loja Virtual para comercialização de livros de forma online. 
-
+Bookstore é parte de uma implantação de Loja Virtual para livros de forma online.
 
 ## Conceitos utilizados
-
-- [Clean Architecture](https://medium.com/luizalabs/descomplicando-a-clean-architecture-cf4dfc4a1ac6) : Como arquitetura, adotei o conceito de arquitetura limpa para esse projeto. Basicamente, cada modulo terá 4 camadas para serem desenvolvidos. Com foco sempre de deixa os componentes desacoplado e indepedentes.
-
-- [Injeção de Dependência e Inversão de Controle](https://medium.com/@eduardolanfredi/inje%C3%A7%C3%A3o-de-depend%C3%AAncia-ff0372a1672) : Com o objetivo de desacoplar cada peça do projeto, foi adotado o sistema de injeção, sendo que sempre utilizei as entradas pelo construtor.
-
-- [Git Flow](https://blog.betrybe.com/git/git-flow/): É um fluxo de trabalho para o Git criado para facilitar o processo de desenvolvimento com uma série de comandos novos. 
-
-
+- [Clean Architecture](https://medium.com/luizalabs/descomplicando-a-clean-architecture-cf4dfc4a1ac6) : Utilizei o conceito de arquitetura limpa para esse projeto, baseado nas ideias de Uncle Bob. Basicamente, cada modulo terá 4 camadas para serem desenvolvidos.
+- [Injeção de Dependência e Inversão de Controle](https://medium.com/@eduardolanfredi/inje%C3%A7%C3%A3o-de-depend%C3%AAncia-ff0372a1672) : Com o objetivo de desacoplar cada peça do projeto, foi adotado o sistema de injeção de dependência, sendo que sempre utilizei as entradas da dependência pelo construtor.
+- [Git Flow](https://blog.betrybe.com/git/git-flow/):  É um fluxo de trabalho para o Git criado para facilitar o processo de desenvolvimento com uma série de comandos novos. 
 
 ## Tecnologias utilizados
-
 - Gerenciamento de Estado: [Mobx](https://mobx.netlify.app/) para gerenciador de reatividade.
-
 - Sistema de controle de navegação/rotas e Injeção de Dependência: [Flutter Modular](https://modular.flutterando.com.br/docs/flutter_modular/start)
-
 - Controle de versão: [Git](https://git-scm.com/) e [Github](https://github.com/) para gerenciar e armazenar as versões do projeto.
 
 ## Features desenvolvidas
